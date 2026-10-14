@@ -2679,3 +2679,44 @@ body {
         height: 36px !important;
     }
 }
+
+
+/* HiPapa Official Logo Styling (Crisp & High-Contrast) */
+.site-main-logo {
+    height: 44px !important;
+    width: auto !important;
+    max-width: 170px !important;
+    display: inline-block !important;
+    object-fit: contain !important;
+    vertical-align: middle !important;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.08)) !important;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.site-main-logo:hover {
+    transform: scale(1.03) !important;
+}
+
+.dash-inner-logo {
+    height: 30px !important;
+    width: auto !important;
+    max-width: 130px !important;
+    display: inline-block !important;
+    object-fit: contain !important;
+}
+
+.site-footer-logo {
+    height: 46px !important;
+    width: auto !important;
+    max-width: 180px !important;
+    display: inline-block !important;
+    object-fit: contain !important;
+    margin-bottom: 8px !important;
+}
+
+@media (max-width: 768px) {
+    .site-main-logo {
+        height: 36px !important;
+        max-width: 140px !important;
+    }
+}
