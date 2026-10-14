@@ -1,0 +1,240 @@
+{
+  "siteSettings": {
+    "itJobsPhone": "+91 85532 81835",
+    "itJobsEmail": "itjobswhm@whitehorsemanpower.in",
+    "nonItJobsPhone": "+91 99007 77511, +91 88845 72014",
+    "nonItJobsEmail": "whitehorsemanpower@gmail.com",
+    "branchEmail": "whmhrteamhyd@whitehorsemanpower.in",
+    "primaryPhone": "+91 99007 77511",
+    "primaryPhoneClean": "9900777511",
+    "secondaryPhone": "+91 88845 72014",
+    "primaryEmail": "whitehorsemanpower@gmail.com",
+    "whatsappNumber": "919900777511",
+    "bangaloreAddress": "Bangalore, Karnataka, India",
+    "hyderabadAddress": "Tarnaka, Hyderabad, Telangana",
+    "dubaiAddress": "Dubai, United Arab Emirates",
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/104130562560619",
+      "twitter": "https://twitter.com/whitehorsemanpo",
+      "linkedinCompany": "https://www.linkedin.com/company/89857350",
+      "linkedinFounder": "https://www.linkedin.com/in/whitehorsemanpower2007",
+      "instagram": "https://instagram.com/whitehorsemanpower",
+      "youtube": "https://www.youtube.com/@WhiteHorseManpowerjob",
+      "googleBusiness": "https://business.google.com/"
+    }
+  },
+  "jobs": [
+    {
+      "id": "job_1",
+      "title": "P2P Senior Analyst / Associate Manager",
+      "category": "finance",
+      "categoryLabel": "Procure-to-Pay",
+      "experience": "5–14 Years",
+      "location": "Navi Mumbai",
+      "shift": "Rotational Shifts",
+      "salary": "₹7 – 19 LPA",
+      "tags": [
+        "P2P Cycle",
+        "AP Invoicing",
+        "Vendor Reconciliation"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "job_2",
+      "title": "O2C Senior Analyst — Billing & Revenue Management",
+      "category": "finance",
+      "categoryLabel": "Order-to-Cash",
+      "experience": "5–14 Years",
+      "location": "Navi Mumbai",
+      "shift": "Full-Time",
+      "salary": "₹7 – 19 LPA",
+      "tags": [
+        "Order to Cash",
+        "Cash Apps",
+        "Dispute Resolution"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_3",
+      "title": "SAP ABAP Consultant with S/4HANA",
+      "category": "sap",
+      "categoryLabel": "SAP ERP",
+      "experience": "2+ Years",
+      "location": "Pune / Bangalore",
+      "shift": "Hybrid",
+      "salary": "Up to ₹10 LPA",
+      "tags": [
+        "SAP ABAP",
+        "S/4HANA",
+        "OData / CDS",
+        "BAPI"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "job_4",
+      "title": "SAP FICO Lead Consultant (S/4HANA Finance)",
+      "category": "sap",
+      "categoryLabel": "SAP ERP",
+      "experience": "6–12 Years",
+      "location": "Bangalore / Hyderabad",
+      "shift": "Full-Time",
+      "salary": "₹18 – 32 LPA",
+      "tags": [
+        "SAP FICO",
+        "General Ledger",
+        "Asset Accounting",
+        "CO-PA"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_5",
+      "title": "Senior Full Stack Java & Microservices Lead",
+      "category": "it",
+      "categoryLabel": "IT & Software",
+      "experience": "4–9 Years",
+      "location": "Bangalore (Hybrid)",
+      "shift": "Hybrid (2 Days)",
+      "salary": "₹16 – 28 LPA",
+      "tags": [
+        "Java 17+",
+        "Spring Boot",
+        "Microservices",
+        "Kafka"
+      ],
+      "featured": true,
+      "active": true
+    },
+    {
+      "id": "job_6",
+      "title": "AWS / Azure Cloud DevOps & Infrastructure Architect",
+      "category": "it",
+      "categoryLabel": "Cloud & DevOps",
+      "experience": "7–14 Years",
+      "location": "Bangalore / Dubai",
+      "shift": "Cross-Border",
+      "salary": "₹24 – 42 LPA",
+      "tags": [
+        "Terraform",
+        "Kubernetes",
+        "AWS / Azure",
+        "CI/CD"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_7",
+      "title": "ServiceNow Developer with Integration Testing",
+      "category": "it",
+      "categoryLabel": "IT & Cloud",
+      "experience": "2+ Years",
+      "location": "Bangalore",
+      "shift": "Full-Time",
+      "salary": "Up to ₹8.5 LPA",
+      "tags": [
+        "ServiceNow",
+        "ITSM / ITOM",
+        "GlideScript",
+        "Rest APIs"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_8",
+      "title": "24x7 NOC Operations Specialist & Incident Lead",
+      "category": "it",
+      "categoryLabel": "IT Operations",
+      "experience": "2+ Years",
+      "location": "Pune / Hyderabad",
+      "shift": "Rotational Shifts",
+      "salary": "Up to ₹7 LPA",
+      "tags": [
+        "NOC Monitoring",
+        "Incident Lead",
+        "Network Ops",
+        "P1/P2 SLA"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_9",
+      "title": "International Voice & Customer Escalations Lead",
+      "category": "bpo",
+      "categoryLabel": "BPM & CX",
+      "experience": "3–7 Years",
+      "location": "Bangalore",
+      "shift": "US / UK Shift",
+      "salary": "₹6.5 – 12 LPA",
+      "tags": [
+        "International Voice",
+        "Escalations Lead",
+        "CX / CSAT",
+        "UK / US Shifts"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_10",
+      "title": "Certified Medical Coding Specialist (CPC / CIC)",
+      "category": "healthcare",
+      "categoryLabel": "Healthcare RCM",
+      "experience": "2–6 Years",
+      "location": "Hyderabad / Chennai",
+      "shift": "Full-Time",
+      "salary": "₹5 – 10 LPA",
+      "tags": [
+        "CPC Certified",
+        "ICD-10 / CPT",
+        "Inpatient DRG",
+        "Chart Auditing"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_11",
+      "title": "Technical Lateral Talent Acquisition Specialist",
+      "category": "it",
+      "categoryLabel": "Human Resources",
+      "experience": "2–5 Years",
+      "location": "Bangalore & Hyderabad",
+      "shift": "Immediate",
+      "salary": "Competitive + Incentives",
+      "tags": [
+        "Lateral Hiring",
+        "Tech Sourcing",
+        "Stakeholder Management"
+      ],
+      "featured": false,
+      "active": true
+    },
+    {
+      "id": "job_12",
+      "title": "VP / Practice Director — C-Suite & Leadership Search",
+      "category": "it",
+      "categoryLabel": "Executive Search",
+      "experience": "12–20 Years",
+      "location": "Bangalore & Dubai",
+      "shift": "Executive Retained",
+      "salary": "₹45 – 80 LPA",
+      "tags": [
+        "CXO Hiring",
+        "Board Appointments",
+        "Retained Search"
+      ],
+      "featured": true,
+      "active": true
+    }
+  ]
+}

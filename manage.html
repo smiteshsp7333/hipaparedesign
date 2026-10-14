@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White Horse Manpower — Website Content & Jobs Manager</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0A1118;
+      --card-bg: #111B24;
+      --card-border: #1E2D3D;
+      --accent-gold: #D4AF37;
+      --accent-emerald: #10B981;
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --input-bg: #0D1620;
+      --input-border: #26384C;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .admin-header {
+      background: rgba(17, 27, 36, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge img {
+      height: 38px;
+      width: auto;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #FFF;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      display: block;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #D4AF37, #AA820A);
+      color: #000;
+      font-weight: 700;
+      border: none;
+    }
+    .btn-gold:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    .btn-emerald {
+      background: #10B981;
+      color: #FFF;
+    }
+    .btn-emerald:hover { background: #059669; }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--card-border);
+      color: var(--text-main);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .btn-danger:hover { background: #EF4444; color: #FFF; }
+
+    /* Container & Layout */
+    .admin-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 24px 100px;
+      flex: 1;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      background: var(--card-bg);
+      padding: 6px;
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--input-bg);
+      color: #FFF;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      border: 1px solid var(--card-border);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Forms */
+    .admin-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #FFF;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .form-input {
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      color: #FFF;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 100%;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent-gold);
+    }
+
+    /* Job Manager Table */
+    .jobs-table-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+
+    .jobs-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .jobs-table th {
+      background: #0D1620;
+      padding: 12px 16px;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--card-border);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .jobs-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--card-border);
+      vertical-align: middle;
+    }
+
+    .jobs-table tr:hover {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-it { background: rgba(59, 130, 246, 0.18); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-sap { background: rgba(168, 85, 247, 0.18); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-finance { background: rgba(16, 185, 129, 0.18); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-bpo { background: rgba(245, 158, 11, 0.18); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-healthcare { background: rgba(236, 72, 153, 0.18); color: #F472B6; border: 1px solid rgba(236, 72, 153, 0.3); }
+
+    /* Sticky Bottom Bar */
+    .publish-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 27, 36, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--card-border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 90;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 16px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      max-width: 580px;
+      width: 100%;
+      padding: 28px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: #10B981;
+      color: #FFF;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 2000;
+    }
+
+    .toast.error {
+      background: #EF4444;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Admin Header -->
+  <header class="admin-header">
+    <div class="brand-badge">
+      <img src="assets/images/logo-transparent.png" alt="White Horse Manpower">
+      <div>
+        <div class="brand-title">WHITE HORSE MANPOWER</div>
+        <span class="brand-subtitle">Website Content &amp; Job Openings CMS</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" target="_blank" class="btn btn-outline">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Live Website
+      </a>
+      <button class="btn btn-gold" onclick="saveAllChanges()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save &amp; Publish Live
+      </button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('tab-contacts')">
+        📞 Contact &amp; Header Info
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-socials')">
+        🌐 Social Media Hyperlinks
+      </button>
+      <button class="tab-btn" onclick="switchTab('tab-jobs')">
+        💼 Job Openings Manager (<span id="jobCountBadge">12</span>)
+      </button>
+    </div>
+
+    <!-- TAB 1: Contacts & Header -->
+    <div id="tab-contacts" class="tab-panel active">
+      <div class="admin-card">
+        <h3 class="card-title">📞 Contact Numbers &amp; Email Addresses</h3>
+        <p class="card-desc">These phone numbers and email addresses appear dynamically across the top banner, navbar, footer, and click-to-call buttons.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <!-- Col 1: IT Jobs For Exp Only -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: #FFF; letter-spacing: -0.01em;">
+              IT Jobs For Exp Only
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Number</label>
+              <input type="text" id="itJobsPhone" class="form-input" placeholder="8553281835">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="itJobsEmail" class="form-input" placeholder="itjobswhm@whitehorsemanpower.in">
+            </div>
+          </div>
+
+          <!-- Col 2: Non IT Jobs -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: #FFF; letter-spacing: -0.01em;">
+              Non IT Jobs
+            </div>
+            <div class="form-group">
+              <label class="form-label">Phone Numbers</label>
+              <input type="text" id="nonItJobsPhone" class="form-input" placeholder="9900777511, 8884572014">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="nonItJobsEmail" class="form-input" placeholder="whitehorsemanpower@gmail.com">
+            </div>
+          </div>
+
+          <!-- Col 3: Branch / Tarnaka HR Email -->
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; padding-top: 4px;">
+              BRANCH / TARNAKA HR EMAIL
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="branchEmail" class="form-input" placeholder="whmhrteamhyd@whitehorsemanpower.in">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3 class="card-title">📢 Announcement Bar &amp; Addresses</h3>
+        <p class="card-desc">Update office location text across the portal and footers.</p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Bangalore HQ Address</label>
+            <input type="text" id="bangaloreAddress" class="form-input" placeholder="Bangalore, Karnataka, India">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Hyderabad Branch Address</label>
+            <input type="text" id="hyderabadAddress" class="form-input" placeholder="Tarnaka, Hyderabad, Telangana">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Dubai International Office</label>
+            <input type="text" id="dubaiAddress" class="form-input" placeholder="Dubai, United Arab Emirates">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Social Links -->
+    <div id="tab-socials" class="tab-panel">
+      <div class="admin-card">
+        <h3 class="card-title">🌐 Official Social Media &amp; Hyperlinks</h3>
+        <p class="card-desc">These links power the official social icons in the footer and contact sections.</p>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">LinkedIn Company Page</label>
+            <input type="url" id="linkLinkedinCompany" class="form-input" placeholder="https://www.linkedin.com/company/89857350">
+          </div>
+          <div class="form-group">
+            <label class="form-label">LinkedIn Founder / Director (Personal)</label>
+            <input type="url" id="linkLinkedinFounder" class="form-input" placeholder="https://www.linkedin.com/in/whitehorsemanpower2007">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Instagram</label>
+            <input type="url" id="linkInstagram" class="form-input" placeholder="https://instagram.com/whitehorsemanpower">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Twitter / X</label>
+            <input type="url" id="linkTwitter" class="form-input" placeholder="https://twitter.com/whitehorsemanpo">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Facebook Page</label>
+            <input type="url" id="linkFacebook" class="form-input" placeholder="https://www.facebook.com/104130562560619">
+          </div>
+          <div class="form-group">
+            <label class="form-label">YouTube Channel</label>
+            <input type="url" id="linkYoutube" class="form-input" placeholder="https://www.youtube.com/@WhiteHorseManpowerjob">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Google Business Profile</label>
+            <input type="url" id="linkGoogleBusiness" class="form-input" placeholder="https://business.google.com/">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: Job Openings Manager -->
+    <div id="tab-jobs" class="tab-panel">
+      <div class="admin-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h3 class="card-title">💼 Active Job Openings</h3>
+            <p class="card-desc" style="margin-bottom: 0;">Add, edit, change salary/experience, or remove job cards displayed on the website.</p>
+          </div>
+          <button class="btn btn-emerald" onclick="openAddJobModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            + Add New Job Opening
+          </button>
+        </div>
+
+        <div class="jobs-table-wrap">
+          <table class="jobs-table">
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Category</th>
+                <th>Experience</th>
+                <th>Location</th>
+                <th>Salary</th>
+                <th>Status</th>
+                <th style="text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="jobsTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sticky Publish Bar -->
+  <div class="publish-bar">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10B981;"></span>
+      <span style="font-size: 0.85rem; color: var(--text-muted);" id="statusIndicator">Ready to publish changes</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button class="btn btn-gold" onclick="saveAllChanges()">
+        Save &amp; Publish Live
+      </button>
+    </div>
+  </div>
+
+  <!-- Add / Edit Job Modal -->
+  <div id="jobEditModal" class="modal-overlay">
+    <div class="modal-box">
+      <h3 class="card-title" id="jobModalHeading" style="margin-bottom: 16px;">Add New Job Opening</h3>
+      
+      <input type="hidden" id="editJobId">
+
+      <div class="form-group" style="margin-bottom: 14px;">
+        <label class="form-label">Job Title *</label>
+        <input type="text" id="jobEditTitle" class="form-input" placeholder="e.g. Senior SAP ABAP Consultant" required>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+        <div class="form-group">
+          <label class="form-label">Category Filter *</label>
+          <select id="jobEditCategory" class="form-input">
+            <option value="it">IT &amp; Software</option>
+            <option value="sap">SAP ERP</option>
+            <option value="finance">Finance / P2P / O2C</option>
+            <option value="bpo">Voice &amp; BPO / Customer Service</option>
+            <option value="healthcare">Healthcare &amp; Medical Coding</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Department Label</label>
+          <input type="text" id="jobEditDeptLabel" class="form-input" placeholder="e.g. SAP ERP or Cloud & DevOps">
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+        <div class="form-group">
+          <label class="form-label">Experience</label>
+          <input type="text" id="jobEditExp" class="form-input" placeholder="e.g. 3–6 Years or Fresher">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Location</label>
+          <input type="text" id="jobEditLocation" class="form-input" placeholder="e.g. Bangalore / Pune / Hybrid">
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+        <div class="form-group">
+          <label class="form-label">Shift / Work Mode</label>
+          <input type="text" id="jobEditShift" class="form-input" placeholder="e.g. Full-Time or Rotational">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Salary Range</label>
+          <input type="text" id="jobEditSalary" class="form-input" placeholder="e.g. ₹8 – 15 LPA">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 20px;">
+        <label class="form-label">Key Skill Tags (comma-separated)</label>
+        <input type="text" id="jobEditTags" class="form-input" placeholder="e.g. SAP ABAP, S/4HANA, OData">
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button type="button" class="btn btn-outline" onclick="closeJobModal()">Cancel</button>
+        <button type="button" class="btn btn-emerald" onclick="saveJobItem()">Save Job</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Authentication Modal -->
+  <div id="authModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 420px; text-align: center;">
+      <img src="assets/images/logo-transparent.png" alt="White Horse" style="height: 48px; margin: 0 auto 16px;">
+      <h3 class="card-title" style="justify-content: center; margin-bottom: 8px;">White Horse Admin Login</h3>
+      <p class="card-desc">Enter your manager password to edit website content &amp; jobs.</p>
+
+      <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+        <label class="form-label">Admin Password</label>
+        <input type="password" id="authPasswordInput" class="form-input" placeholder="Enter password..." autofocus>
+      </div>
+
+      <button type="button" class="btn btn-gold" style="width: 100%; justify-content: center;" onclick="verifyAuth()">
+        Access Website CMS
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastMsg">Changes saved live!</span>
+  </div>
+
+  <script>
+    // State Store
+    let currentConfig = {
+      siteSettings: {},
+      jobs: []
+    };
+
+    let adminPassword = sessionStorage.getItem('whm_admin_pwd') || '';
+
+    // Check Auth on Load
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (!adminPassword) {
+        document.getElementById('authModal').classList.add('open');
+      }
+      await loadCurrentConfig();
+    });
+
+    function verifyAuth() {
+      const pwd = document.getElementById('authPasswordInput').value.trim();
+      if (!pwd) {
+        alert('Please enter password');
+        return;
+      }
+      adminPassword = pwd;
+      sessionStorage.setItem('whm_admin_pwd', pwd);
+      document.getElementById('authModal').classList.remove('open');
+    }
+
+    // Tab Navigation
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Load Config
+    async function loadCurrentConfig() {
+      try {
+        const res = await fetch('api/config.php?t=' + Date.now());
+        if (res.ok) {
+          currentConfig = await res.json();
+          populateFields();
+        } else {
+          // Fallback to local json
+          const fallbackRes = await fetch('data/site-config.json?t=' + Date.now());
+          if (fallbackRes.ok) {
+            currentConfig = await fallbackRes.json();
+            populateFields();
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to load dynamic config:', err);
+      }
+    }
+
+    function populateFields() {
+      const s = currentConfig.siteSettings || {};
+      document.getElementById('itJobsPhone').value = s.itJobsPhone || '8553281835';
+      document.getElementById('itJobsEmail').value = s.itJobsEmail || 'itjobswhm@whitehorsemanpower.in';
+      document.getElementById('nonItJobsPhone').value = s.nonItJobsPhone || '9900777511, 8884572014';
+      document.getElementById('nonItJobsEmail').value = s.nonItJobsEmail || 'whitehorsemanpower@gmail.com';
+      document.getElementById('branchEmail').value = s.branchEmail || 'whmhrteamhyd@whitehorsemanpower.in';
+
+      document.getElementById('bangaloreAddress').value = s.bangaloreAddress || 'Bangalore, Karnataka, India';
+      document.getElementById('hyderabadAddress').value = s.hyderabadAddress || 'Tarnaka, Hyderabad, Telangana';
+      document.getElementById('dubaiAddress').value = s.dubaiAddress || 'Dubai, United Arab Emirates';
+
+      const soc = s.socialLinks || {};
+      document.getElementById('linkLinkedinCompany').value = soc.linkedinCompany || 'https://www.linkedin.com/company/89857350';
+      document.getElementById('linkLinkedinFounder').value = soc.linkedinFounder || 'https://www.linkedin.com/in/whitehorsemanpower2007';
+      document.getElementById('linkInstagram').value = soc.instagram || 'https://instagram.com/whitehorsemanpower';
+      document.getElementById('linkTwitter').value = soc.twitter || 'https://twitter.com/whitehorsemanpo';
+      document.getElementById('linkFacebook').value = soc.facebook || 'https://www.facebook.com/104130562560619';
+      document.getElementById('linkYoutube').value = soc.youtube || 'https://www.youtube.com/@WhiteHorseManpowerjob';
+      document.getElementById('linkGoogleBusiness').value = soc.googleBusiness || 'https://business.google.com/';
+
+      renderJobsTable();
+    }
+
+    function renderJobsTable() {
+      const tbody = document.getElementById('jobsTableBody');
+      tbody.innerHTML = '';
+
+      const jobs = currentConfig.jobs || [];
+      document.getElementById('jobCountBadge').textContent = jobs.length;
+
+      jobs.forEach((j, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${j.title}</strong></td>
+          <td><span class="badge badge-${j.category || 'it'}">${j.categoryLabel || j.category || 'General'}</span></td>
+          <td>${j.experience || 'Any'}</td>
+          <td>${j.location || 'Bangalore'}</td>
+          <td><strong style="color: var(--accent-gold);">${j.salary || 'Best in Industry'}</strong></td>
+          <td><span style="color: ${j.active !== false ? '#10B981' : '#94A3B8'}; font-weight: 600;">${j.active !== false ? '● Active' : '○ Hidden'}</span></td>
+          <td style="text-align: right; white-space: nowrap;">
+            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.78rem;" onclick="editJob('${j.id}')">Edit</button>
+            <button class="btn btn-danger" style="padding: 5px 10px; font-size: 0.78rem;" onclick="deleteJob('${j.id}')">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Modal Operations
+    function openAddJobModal() {
+      document.getElementById('jobModalHeading').textContent = 'Add New Job Opening';
+      document.getElementById('editJobId').value = '';
+      document.getElementById('jobEditTitle').value = '';
+      document.getElementById('jobEditCategory').value = 'it';
+      document.getElementById('jobEditDeptLabel').value = 'IT & Software';
+      document.getElementById('jobEditExp').value = '2–5 Years';
+      document.getElementById('jobEditLocation').value = 'Bangalore';
+      document.getElementById('jobEditShift').value = 'Full-Time';
+      document.getElementById('jobEditSalary').value = '₹8 – 15 LPA';
+      document.getElementById('jobEditTags').value = '';
+      document.getElementById('jobEditModal').classList.add('open');
+    }
+
+    function editJob(id) {
+      const job = currentConfig.jobs.find(j => j.id === id);
+      if (!job) return;
+
+      document.getElementById('jobModalHeading').textContent = 'Edit Job Opening';
+      document.getElementById('editJobId').value = job.id;
+      document.getElementById('jobEditTitle').value = job.title || '';
+      document.getElementById('jobEditCategory').value = job.category || 'it';
+      document.getElementById('jobEditDeptLabel').value = job.categoryLabel || '';
+      document.getElementById('jobEditExp').value = job.experience || '';
+      document.getElementById('jobEditLocation').value = job.location || '';
+      document.getElementById('jobEditShift').value = job.shift || '';
+      document.getElementById('jobEditSalary').value = job.salary || '';
+      document.getElementById('jobEditTags').value = Array.isArray(job.tags) ? job.tags.join(', ') : (job.tags || '');
+
+      document.getElementById('jobEditModal').classList.add('open');
+    }
+
+    function closeJobModal() {
+      document.getElementById('jobEditModal').classList.remove('open');
+    }
+
+    function saveJobItem() {
+      const title = document.getElementById('jobEditTitle').value.trim();
+      if (!title) {
+        alert('Please enter a job title');
+        return;
+      }
+
+      const id = document.getElementById('editJobId').value || 'job_' + Date.now();
+      const category = document.getElementById('jobEditCategory').value;
+      const categoryLabel = document.getElementById('jobEditDeptLabel').value.trim() || category.toUpperCase();
+      const experience = document.getElementById('jobEditExp').value.trim();
+      const location = document.getElementById('jobEditLocation').value.trim();
+      const shift = document.getElementById('jobEditShift').value.trim();
+      const salary = document.getElementById('jobEditSalary').value.trim();
+      const tags = document.getElementById('jobEditTags').value.split(',').map(t => t.trim()).filter(Boolean);
+
+      const jobObj = {
+        id,
+        title,
+        category,
+        categoryLabel,
+        experience,
+        location,
+        shift,
+        salary,
+        tags,
+        active: true
+      };
+
+      const existingIdx = currentConfig.jobs.findIndex(j => j.id === id);
+      if (existingIdx >= 0) {
+        currentConfig.jobs[existingIdx] = jobObj;
+      } else {
+        currentConfig.jobs.unshift(jobObj);
+      }
+
+      closeJobModal();
+      renderJobsTable();
+      showToast('Job opening updated. Click "Save & Publish" to go live!');
+    }
+
+    function deleteJob(id) {
+      if (!confirm('Are you sure you want to remove this job opening?')) return;
+      currentConfig.jobs = currentConfig.jobs.filter(j => j.id !== id);
+      renderJobsTable();
+      showToast('Job removed. Click "Save & Publish" to go live!');
+    }
+
+    // Save All Changes Live
+    async function saveAllChanges() {
+      if (!adminPassword) {
+        document.getElementById('authModal').classList.add('open');
+        return;
+      }
+
+      // Collect form inputs
+      currentConfig.siteSettings = {
+        itJobsPhone: document.getElementById('itJobsPhone').value.trim(),
+        itJobsEmail: document.getElementById('itJobsEmail').value.trim(),
+        nonItJobsPhone: document.getElementById('nonItJobsPhone').value.trim(),
+        nonItJobsEmail: document.getElementById('nonItJobsEmail').value.trim(),
+        branchEmail: document.getElementById('branchEmail').value.trim(),
+        primaryPhone: document.getElementById('nonItJobsPhone').value.split(',')[0].trim(),
+        primaryPhoneClean: document.getElementById('nonItJobsPhone').value.split(',')[0].replace(/\D/g, ''),
+        secondaryPhone: document.getElementById('itJobsPhone').value.trim(),
+        primaryEmail: document.getElementById('nonItJobsEmail').value.trim(),
+        bangaloreAddress: document.getElementById('bangaloreAddress').value.trim(),
+        hyderabadAddress: document.getElementById('hyderabadAddress').value.trim(),
+        dubaiAddress: document.getElementById('dubaiAddress').value.trim(),
+        socialLinks: {
+          facebook: document.getElementById('linkFacebook').value.trim(),
+          twitter: document.getElementById('linkTwitter').value.trim(),
+          linkedinCompany: document.getElementById('linkLinkedinCompany').value.trim(),
+          linkedinFounder: document.getElementById('linkLinkedinFounder').value.trim(),
+          instagram: document.getElementById('linkInstagram').value.trim(),
+          youtube: document.getElementById('linkYoutube').value.trim(),
+          googleBusiness: document.getElementById('linkGoogleBusiness').value.trim(),
+        }
+      };
+
+      const indicator = document.getElementById('statusIndicator');
+      indicator.textContent = 'Publishing changes to live server...';
+
+      try {
+        const res = await fetch('api/config.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            adminPassword: adminPassword,
+            siteSettings: currentConfig.siteSettings,
+            jobs: currentConfig.jobs
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success) {
+          indicator.textContent = 'Last published: ' + (data.updatedAt || new Date().toLocaleTimeString());
+          showToast('🎉 ' + data.message);
+        } else if (res.status === 401) {
+          alert('Incorrect Admin Password. Please re-enter your password.');
+          sessionStorage.removeItem('whm_admin_pwd');
+          adminPassword = '';
+          document.getElementById('authModal').classList.add('open');
+        } else {
+          alert(data.message || 'Failed to save changes');
+        }
+      } catch (err) {
+        console.error('Save error:', err);
+        showToast('Network error while publishing', true);
+      }
+    }
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = msg;
+      toast.className = 'toast' + (isError ? ' error' : '');
+      toast.style.display = 'flex';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

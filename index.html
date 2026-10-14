@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiPapa Cloud — High-Speed Web Hosting & Cloud Platform</title>
+    <meta name="description" content="Manage your cloud hosting with clarity and speed. Enterprise NVMe web hosting, LiteSpeed WordPress acceleration, and global infrastructure.">
+    
+    <!-- Qarin Official Typography: Plus Jakarta Sans, Geist & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Qarin Design System CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ambient Dynamic Lighting Orbs for Glassmorphism Reflections -->
+    <div class="ambient-glow-mesh" aria-hidden="true">
+        <div class="ambient-orb orb-top-left"></div>
+        <div class="ambient-orb orb-hero-glow"></div>
+        <div class="ambient-orb orb-mid-cyan"></div>
+        <div class="ambient-orb orb-pricing-indigo"></div>
+        <div class="ambient-orb orb-bottom-glow"></div>
+    </div>
+
+    <!-- Floating Sticky Navigation (Qarin Frosted Glass Island Navbar) -->
+    <header class="qarin-navbar" id="header">
+        <div class="nav-container">
+            <!-- Brand Logo with Two Overlapping Circles (Qarin Brand Mark) -->
+            <a href="#hero" class="nav-brand" aria-label="HiPapa Home">
+                <div class="brand-circles-logo">
+                    <span class="circle-dark"></span>
+                    <span class="circle-bright"></span>
+                </div>
+                <span class="brand-title">HiPapa</span>
+            </a>
+
+            <!-- Nav Links: ALL SECTIONS SEPARATE ON NAVBAR WITH FLOATING PILL HOVER EFFECT -->
+            <nav class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-item active">Overview</a>
+                <a href="#core-features" class="nav-item">Features</a>
+                <a href="#features" class="nav-item">Infrastructure</a>
+                <a href="#how-it-works" class="nav-item">Workflow</a>
+                <a href="#integrations" class="nav-item">Integrations</a>
+                <a href="#pricing" class="nav-item">Pricing</a>
+                <a href="#reviews" class="nav-item">Reviews</a>
+                <a href="#blog" class="nav-item">Articles</a>
+                <a href="#faq" class="nav-item">FAQ</a>
+            </nav>
+
+            <!-- Right Controls: Black Get Started Now Button + Mobile Menu -->
+            <div class="nav-right-cluster">
+                <!-- Qarin Black CTA Button -->
+                <a href="#pricing" class="btn btn-dark-nav">
+                    Get Started Now
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="mobile-menu-trigger" id="mobile-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer-overlay" id="mobile-drawer">
+        <div class="drawer-header-row">
+            <div class="brand-circles-logo">
+                <span class="circle-dark"></span>
+                <span class="circle-bright"></span>
+            </div>
+            <span class="brand-title">HiPapa</span>
+            <button class="drawer-close-btn" id="drawer-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-link-list">
+            <a href="#hero" class="m-link">Overview</a>
+            <a href="#core-features" class="m-link">Features</a>
+            <a href="#features" class="m-link">Infrastructure</a>
+            <a href="#how-it-works" class="m-link">Workflow</a>
+            <a href="#integrations" class="m-link">Integrations</a>
+            <a href="#pricing" class="m-link">Pricing</a>
+            <a href="#reviews" class="m-link">Reviews</a>
+            <a href="#blog" class="m-link">Articles</a>
+            <a href="#faq" class="m-link">FAQ</a>
+        </div>
+        <div class="drawer-cta-area">
+            <div class="currency-toggle-capsule full-w">
+                <button class="capsule-btn active" data-curr="USD" onclick="window.setCurrency('USD')">$ USD</button>
+                <button class="capsule-btn" data-curr="INR" onclick="window.setCurrency('INR')">₹ INR</button>
+            </div>
+            <a href="#pricing" class="btn btn-dark-nav full-w text-center">Get Started Now</a>
+        </div>
+    </div>
+
+    <!-- Hero Section (Exact Qarin Screenshot 1, 2, 3 Layout) -->
+    <section class="hero-stage" id="hero">
+        <div class="container hero-content-center text-center">
+            <!-- Pill Tag: High-Velocity NVMe Cloud Platform ↗ -->
+            <div class="pill-badge-top">
+                <span>⚡ High-Velocity NVMe Cloud Hosting 2.0</span>
+                <i class="fa-solid fa-arrow-up-right-from-square pill-arrow"></i>
+            </div>
+
+            <!-- Big Bold Headline (Pure Black #18191b, tight kerning) -->
+            <h1 class="hero-headline">
+                Manage Your Cloud Hosting<br>with Clarity and Control
+            </h1>
+
+            <!-- Subtitle with HiPapa Authentic Offering -->
+            <p class="hero-paragraph">
+                Deliver exceptional website speed and 99.99% uptime with LiteSpeed-powered NVMe hosting. Built for modern businesses, e-commerce stores, and high-traffic teams across India and worldwide.
+            </p>
+
+            <!-- Hero Action Buttons (Exact Qarin Colors: Blue Left, White Right with ↗) -->
+            <div class="hero-action-buttons">
+                <a href="#pricing" class="btn btn-qarin-blue">
+                    Explore Hosting Plans
+                </a>
+                <a href="https://wa.me/919972788225" target="_blank" rel="noopener" class="btn btn-qarin-white">
+                    <span>Talk to an Engineer</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square btn-arrow-icon"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- THE QARIN BLUE CURTAIN / VERTICAL STRIPES BACKGROUND WRAPPER -->
+        <div class="hero-curtain-container" id="hero-curtain">
+            <!-- Official Qarin High-Res Curtain Backdrop with Scroll Parallax -->
+            <div class="curtain-image-backdrop" aria-hidden="true" id="curtain-img-wrap">
+                <img src="assets/curtain-bg.png" alt="" class="curtain-bg-img" id="curtain-bg-img">
+            </div>
+
+            <!-- Dynamic Animated Gradient Light Columns -->
+            <div class="blue-curtain-stripes" aria-hidden="true" id="curtain-stripes">
+                <div class="curtain-bar b1"></div>
+                <div class="curtain-bar b2"></div>
+                <div class="curtain-bar b3"></div>
+                <div class="curtain-bar b4"></div>
+                <div class="curtain-bar b5"></div>
+                <div class="curtain-bar b6"></div>
+                <div class="curtain-bar b7"></div>
+                <div class="curtain-bar b8"></div>
+                <div class="curtain-bar b9"></div>
+                <div class="curtain-bar b10"></div>
+                <div class="curtain-bar b11"></div>
+                <div class="curtain-bar b12"></div>
+            </div>
+
+            <!-- THE QARIN DASHBOARD CARD (1:1 From Screenshots 2 & 3) -->
+            <div class="container dashboard-outer-anchor" id="dashboard">
+                <div class="qarin-main-dashboard glass-panel" id="main-dashboard-card">
+                    <!-- Dashboard Internal Top Navigation Bar -->
+                    <div class="dash-inner-navbar">
+                        <!-- Left Logo -->
+                        <div class="dash-nav-left">
+                            <div class="brand-circles-logo logo-sm">
+                                <span class="circle-dark"></span>
+                                <span class="circle-bright"></span>
+                            </div>
+                            <span class="dash-logo-text">HiPapa Cloud</span>
+                        </div>
+
+                        <!-- Center Pill Nav Tabs (Overview active dark) -->
+                        <div class="dash-center-tabs">
+                            <button class="dash-tab-btn active">Overview</button>
+                            <button class="dash-tab-btn">Domains</button>
+                            <button class="dash-tab-btn">cPanel</button>
+                            <button class="dash-tab-btn">Backups</button>
+                            <button class="dash-tab-btn">Security</button>
+                        </div>
+
+                        <!-- Right Icon Actions + User Avatar -->
+                        <div class="dash-nav-right">
+                            <button class="dash-icon-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button class="dash-icon-btn" aria-label="Messages"><i class="fa-regular fa-envelope"></i></button>
+                            <button class="dash-icon-btn" aria-label="Notifications"><i class="fa-regular fa-bell"></i></button>
+                            <div class="dash-user-avatar">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Admin Avatar" class="avatar-photo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Welcome Header Row -->
+                    <div class="dash-welcome-row">
+                        <div class="welcome-copy">
+                            <h2 class="welcome-greeting">Good Morning, Developer!</h2>
+                            <p class="welcome-sub">Let's monitor your cloud hosting performance and active server workloads today</p>
+                        </div>
+
+                        <!-- Date Range Dropdown & Export Data Button -->
+                        <div class="welcome-action-controls">
+                            <div class="date-selector-pill">
+                                <span class="pill-tiny-label">Monitoring Period:</span>
+                                <div class="pill-dropdown-trigger">
+                                    <span>1-24 October 2026</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="export-data-pill">
+                                <span class="pill-tiny-label">Server Telemetry:</span>
+                                <button class="export-btn-capsule">
+                                    <span>Export Metrics</span>
+                                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub-Navigation Pill Tabs -->
+                    <div class="dash-subtabs-row">
+                        <button class="subtab-item active">Server Overview</button>
+                        <button class="subtab-item">Cloud Infrastructure</button>
+                        <button class="subtab-item">Resource Health</button>
+                    </div>
+
+                    <!-- DASHBOARD CONTENT SPLIT GRID (Screenshot 2 & 3) -->
+                    <div class="dash-content-grid">
+                        <!-- LEFT COLUMN: Upcoming Schedule & Progress Cards -->
+                        <div class="dash-left-column">
+                            <!-- Card 1: Server Resource Allocation Card -->
+                            <div class="dash-widget-card">
+                                <div class="widget-header-line">
+                                    <div class="widget-title-group">
+                                        <div class="widget-icon-box"><i class="fa-solid fa-chart-simple text-blue"></i></div>
+                                        <h4 class="widget-title">Server Resource Allocation</h4>
+                                    </div>
+                                </div>
+
+                                <div class="activity-summary-row">
+                                    <div class="activity-big-stat">
+                                        <span class="stat-number-giant">64%</span>
+                                        <span class="stat-label-tiny">Total Load<br>Allocated</span>
+                                    </div>
+
+                                    <!-- 3 Segmented Progress Pills -->
+                                    <div class="progress-segmented-pills">
+                                        <div class="seg-pill seg-green">
+                                            <span class="seg-badge">24%</span>
+                                            <div class="seg-text">
+                                                <strong>NVMe Disk</strong>
+                                                <span>8.4 GB Used</span>
+                                            </div>
+                                        </div>
+                                        <div class="seg-pill seg-blue">
+                                            <span class="seg-badge">35%</span>
+                                            <div class="seg-text">
+                                                <strong>RAM Mem</strong>
+                                                <span>2.8 GB Used</span>
+                                            </div>
+                                        </div>
+                                        <div class="seg-pill seg-grey">
+                                            <span class="seg-badge">41%</span>
+                                            <div class="seg-text">
+                                                <strong>Headroom</strong>
+                                                <span>Available</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Active Cloud Operations -->
+                            <div class="dash-widget-card mt-card">
+                                <div class="widget-header-between">
+                                    <div class="widget-title-group">
+                                        <div class="widget-icon-box"><i class="fa-regular fa-calendar text-muted"></i></div>
+                                        <h4 class="widget-title">Automated Cloud Operations</h4>
+                                    </div>
+                                    <div class="month-pill-dropdown">
+                                        <span>October 2026</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                </div>
+
+                                <div class="task-rows-list">
+                                    <!-- Row 1: Active -->
+                                    <div class="task-row-item">
+                                        <span class="task-status-pill status-done"><i class="fa-solid fa-check"></i> Live</span>
+                                        <div class="task-time-col">
+                                            <span class="t-date">Sat 14, Oct</span>
+                                            <strong class="t-clock">10:30 AM</strong>
+                                        </div>
+                                        <div class="task-title-col">
+                                            <strong class="t-name">LiteSpeed Enterprise Cache</strong>
+                                            <span class="t-members">HTTP/3 QUIC & Redis Object Cache</span>
+                                        </div>
+                                        <div class="task-note-col">
+                                            <span class="t-note-lbl">Status:</span>
+                                            <span class="t-note-val">Active on 12 sites</span>
+                                        </div>
+                                        <div class="task-action-badge badge-green-flower">
+                                            <i class="fa-solid fa-bolt-lightning"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Row 2: Syncing -->
+                                    <div class="task-row-item">
+                                        <span class="task-status-pill status-progress">Syncing</span>
+                                        <div class="task-time-col">
+                                            <span class="t-date">Wed 12, Oct</span>
+                                            <strong class="t-clock">08:30 AM</strong>
+                                        </div>
+                                        <div class="task-title-col">
+                                            <strong class="t-name">Daily Cloud Database Backup</strong>
+                                            <span class="t-members">Encrypted snapshot to Frankfurt vault</span>
+                                        </div>
+                                        <div class="task-note-col">
+                                            <span class="t-note-lbl">Integrity:</span>
+                                            <span class="t-note-val">Verified 100% safe</span>
+                                        </div>
+                                        <div class="task-action-badge badge-blue-swirl">
+                                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Row 3: Scheduled -->
+                                    <div class="task-row-item">
+                                        <span class="task-status-pill status-upcoming">Scheduled</span>
+                                        <div class="task-time-col">
+                                            <span class="t-date">Mon 16, Oct</span>
+                                            <strong class="t-clock">08:12 PM</strong>
+                                        </div>
+                                        <div class="task-title-col">
+                                            <strong class="t-name">SSL Renewal & Security Patch</strong>
+                                            <span class="t-members">Zero-downtime rolling cPanel update</span>
+                                        </div>
+                                        <div class="task-note-col">
+                                            <span class="t-note-lbl">Defense:</span>
+                                            <span class="t-note-val">Imunify360 AI Guard</span>
+                                        </div>
+                                        <div class="task-action-badge badge-orange-hex">
+                                            <i class="fa-solid fa-shield-virus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT COLUMN: Activity Time & 7-Day Layered Stacked Bar Chart -->
+                        <div class="dash-right-column">
+                            <div class="dash-widget-card height-full">
+                                <div class="widget-header-between">
+                                    <div class="widget-title-group">
+                                        <div class="widget-icon-box"><i class="fa-solid fa-chart-line text-blue"></i></div>
+                                        <h4 class="widget-title">Network Activity & Bandwidth</h4>
+                                    </div>
+                                    <div class="month-pill-dropdown">
+                                        <span>Last 7 Days</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                </div>
+
+                                <div class="activity-hero-stat">
+                                    <span class="stat-number-giant">56.8</span>
+                                    <span class="stat-label-tiny">Total GB<br>Transferred</span>
+                                </div>
+
+                                <!-- THE 7-DAY LAYERED STACKED BAR CHART (Exact Qarin Screenshot 3) -->
+                                <div class="qarin-stacked-barchart">
+                                    <!-- Mon -->
+                                    <div class="chart-day-pillar">
+                                        <div class="pillar-stack" style="height: 68px;">
+                                            <div class="layer layer-light"></div>
+                                            <div class="layer layer-mid"></div>
+                                            <div class="layer layer-dark"></div>
+                                        </div>
+                                        <span class="day-label">Mon</span>
+                                    </div>
+
+                                    <!-- Tue -->
+                                    <div class="chart-day-pillar">
+                                        <div class="pillar-stack" style="height: 47px;">
+                                            <div class="layer layer-light"></div>
+                                            <div class="layer layer-dark"></div>
+                                        </div>
+                                        <span class="day-label">Tue</span>
+                                    </div>
+
+                                    <!-- Wed -->
+                                    <div class="chart-day-pillar">
+                                        <div class="pillar-stack" style="height: 77px;">
+                                            <div class="layer layer-lightest"></div>
+                                            <div class="layer layer-light"></div>
+                                            <div class="layer layer-mid"></div>
+                                            <div class="layer layer-dark"></div>
+                                        </div>
+                                        <span class="day-label">Wed</span>
+                                    </div>
+
+                                    <!-- Thu -->
+                                    <div class="chart-day-pillar">
+                                        <div class="pillar-stack" style="height: 60px;">
+                                            <div class="layer layer-light"></div>
+                                            <div class="layer layer-mid"></div>
+                                            <div class="layer layer-dark"></div>
+                                        </div>
+                                        <span class="day-label">Thu</span>
+                                    </div>
+
+                                    <!-- Fri (Tallest Column with 9.21 GB Tooltip) -->
+                                    <div class="chart-day-pillar active-tallest">
+                                        <div class="active-pill-tooltip">
+                                            <span>9.21 GB Peak</span>
+                                        </div>
+                                        <div class="pillar-stack" style="height: 105px;">
+                                            <div class="layer layer-lightest"></div>
+                                            <div class="layer layer-light"></div>
+                                            <div class="layer layer-mid"></div>
+                                            <div class="layer layer-dark"></div>
+                                        </div>
+                                        <span class="day-label">Fri</span>
+                                    </div>
+
+                                    <!-- Sat -->
+                                    <div class="chart-day-pillar">
+                                        <div class="pillar-stack" style="height: 84px;">
+                                            <div class="layer layer-lightest"></div>
+                                            <div class="layer layer-light"></div>
+                                            <div class="layer layer-mid"></div>
+                                        </div>
+                                        <span class="day-label">Sat</span>
+                                    </div>
+
+                                    <!-- Sun (Diagonal Striped Pill Texture) -->
+                                    <div class="chart-day-pillar">
+                                        <span class="off-tag">maint.</span>
+                                        <div class="pillar-stack striped-sunday" style="height: 60px;">
+                                        </div>
+                                        <span class="day-label">Sun</span>
+                                    </div>
+                                </div>
+
+                                <!-- 4 Sub-Metrics Row at Bottom of Chart Card -->
+                                <div class="chart-footer-metrics-grid">
+                                    <div class="sub-metric-item">
+                                        <strong class="sub-val">99.99%</strong>
+                                        <span class="sub-lbl">Historical<br>SLA Uptime</span>
+                                    </div>
+                                    <div class="sub-metric-item">
+                                        <strong class="sub-val">&lt; 34ms</strong>
+                                        <span class="sub-lbl">Avg Edge<br>TTFB</span>
+                                    </div>
+                                    <div class="sub-metric-item">
+                                        <strong class="sub-val">0.42s</strong>
+                                        <span class="sub-lbl">Page Load<br>Time</span>
+                                    </div>
+                                    <div class="sub-metric-item">
+                                        <strong class="sub-val">100%</strong>
+                                        <span class="sub-lbl">Automated<br>DDoS Shield</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Proof Logo Ribbon (from Framer Canvas) -->
+    <section class="client-logos-section">
+        <div class="container text-center">
+            <p class="logos-lead-caption">TRUSTED BY 14,000+ DEVELOPERS, FOUNDERS & MODERN AGENCIES WORLDWIDE</p>
+            <div class="logos-flex-track">
+                <div class="client-logo-item"><i class="fa-solid fa-mobile-screen-button"></i> <span>Mobile</span></div>
+                <div class="client-logo-item"><i class="fa-solid fa-layer-group"></i> <span>Inversion</span></div>
+                <div class="client-logo-item"><i class="fa-solid fa-bars-staggered"></i> <span>Ladders</span></div>
+                <div class="client-logo-item"><i class="fa-solid fa-infinity"></i> <span>Continuum</span></div>
+                <div class="client-logo-item"><i class="fa-solid fa-bolt"></i> <span>Pulse</span></div>
+                <div class="client-logo-item"><i class="fa-solid fa-shapes"></i> <span>Vertex</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FROM SCREENSHOT 2: Signature Dark Inset Core Features Section (1:1 with Screenshot 2) -->
+    <section class="dark-core-features-section" id="core-features">
+        <div class="container">
+            <div class="dark-features-card-inset">
+                <div class="dark-features-header text-center">
+                    <span class="dark-badge-pill"><i class="fa-solid fa-wand-magic-sparkles text-blue"></i> Key Features</span>
+                    <h2 class="dark-features-title">Core features that power your cloud infrastructure</h2>
+                    <p class="dark-features-sub">
+                        HiPapa combines LiteSpeed enterprise acceleration, NVMe storage arrays, and automated cPanel cloud workflows into a single platform—helping businesses and developers launch, scale, and secure websites without complexity.
+                    </p>
+                </div>
+
+                <!-- 6 Large Dark Feature Cards (Matching Screenshot 2 1:1) -->
+                <div class="dark-cards-three-grid">
+                    <!-- Dark Card 1 (Screenshot 2: Smart contact management -> Smart server management) -->
+                    <div class="dark-feature-card">
+                        <div class="dark-card-icon-wrap">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <h3 class="dark-card-title">LiteSpeed & HTTP/3 Acceleration</h3>
+                        <p class="dark-card-desc">
+                            Experience up to 84x faster static caching and 12x faster dynamic WordPress processing than Apache with native LiteSpeed Enterprise and built-in Redis object caching.
+                        </p>
+                    </div>
+
+                    <!-- Dark Card 2 (Screenshot 2: AI sales forecasting -> High-Velocity NVMe Storage) -->
+                    <div class="dark-feature-card">
+                        <div class="dark-card-icon-wrap">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="dark-card-title">High-Velocity NVMe Storage Arrays</h3>
+                        <p class="dark-card-desc">
+                            Powered by AMD EPYC™ processors and PCIe Gen-4 NVMe disk arrays capable of managing high-traffic spikes without resource throttling, bottlenecks, or slowdowns.
+                        </p>
+                    </div>
+
+                    <!-- Dark Card 3 (Screenshot 2: Team collaboration tools -> Team Collaboration & cPanel Tools) -->
+                    <div class="dark-feature-card">
+                        <div class="dark-card-icon-wrap">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <h3 class="dark-card-title">Team Collaboration & cPanel Tools</h3>
+                        <p class="dark-card-desc">
+                            Share access, assign roles, and manage domains, staging environments, and databases across departments with multi-user cPanel and Git version control.
+                        </p>
+                    </div>
+
+                    <!-- Dark Card 4: Imunify360 AI Defense -->
+                    <div class="dark-feature-card">
+                        <div class="dark-card-icon-wrap">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="dark-card-title">Imunify360 AI Defense & Backups</h3>
+                        <p class="dark-card-desc">
+                            Automated 24/7 AI-driven proactive malware defense, automated DDoS filtering, free Let's Encrypt SSL certificates, and automated daily remote snapshots with 1-click restore.
+                        </p>
+                    </div>
+
+                    <!-- Dark Card 5: Real-time alerts -->
+                    <div class="dark-feature-card">
+                        <div class="dark-card-icon-wrap">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3 class="dark-card-title">Real-Time Telemetry & WhatsApp Alerts</h3>
+                        <p class="dark-card-desc">
+                            Receive instant uptime telemetry, server health notifications, and resource threshold alerts directly to your WhatsApp and email before any incident occurs.
+                        </p>
+                    </div>
+
+                    <!-- Dark Card 6: Global Edge Routing -->
+                    <div class="dark-feature-card">
+                        <div class="dark-card-icon-wrap">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h3 class="dark-card-title">Global Edge Routing & Sub-34ms TTFB</h3>
+                        <p class="dark-card-desc">
+                            Deliver lightning-fast Time to First Byte (TTFB) across Indian ISPs and worldwide edge nodes with automated SSL handshake routing and Tier-4 datacenters.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Stats Section (Qarin 4 Metric Columns) -->
+    <section class="qarin-stats-bar">
+        <div class="container">
+            <div class="stats-four-grid">
+                <div class="stat-col">
+                    <h3 class="stat-big-number">72%</h3>
+                    <p class="stat-caption">Increase in operational speed and page load performance</p>
+                </div>
+                <div class="stat-col">
+                    <h3 class="stat-big-number">120k+</h3>
+                    <p class="stat-caption">Customer websites & domains hosted worldwide</p>
+                </div>
+                <div class="stat-col">
+                    <h3 class="stat-big-number text-green">99.99%</h3>
+                    <p class="stat-caption">Historical SLA uptime guaranteed with automatic credit</p>
+                </div>
+                <div class="stat-col">
+                    <h3 class="stat-big-number text-blue">&lt; 34ms</h3>
+                    <p class="stat-caption">Average Time to First Byte (TTFB) across Indian ISPs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Bento Grid (Qarin "Everything you need to manage and grow") -->
+    <section class="section-container bg-light-section" id="features">
+        <div class="container">
+            <div class="section-title-center text-center">
+                <span class="pill-category">CLOUD INFRASTRUCTURE</span>
+                <h2 class="title-primary">Everything you need to manage and scale</h2>
+                <p class="paragraph-primary">
+                    HiPapa combines LiteSpeed intelligence, enterprise NVMe storage, and automated cloud workflows into a single reliable platform.
+                </p>
+            </div>
+
+            <!-- Bento Grid 4 Cards -->
+            <div class="bento-two-col-grid">
+                <!-- Card 1 -->
+                <div class="white-bento-card">
+                    <div class="bento-icon-box bg-tint-blue">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="bento-card-title">Seamless Workflow Integration</h3>
+                    <p class="bento-card-desc">
+                        Connect with your development pipeline effortlessly. Deploy WordPress, WooCommerce, Laravel, or Node.js with native cPanel, Git, and staging tools.
+                    </p>
+                    <div class="bento-footer-badge">
+                        <i class="fa-solid fa-arrow-trend-up text-blue"></i> 1-Click App Deployment
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="white-bento-card">
+                    <div class="bento-icon-box bg-tint-indigo">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <h3 class="bento-card-title">Scalable Enterprise Infrastructure</h3>
+                    <p class="bento-card-desc">
+                        Powered by AMD EPYC™ processors and Gen-4 NVMe disk arrays capable of managing high-traffic spikes without resource throttling or slowdowns.
+                    </p>
+                    <div class="bento-footer-badge">
+                        <i class="fa-solid fa-gauge-high text-green"></i> 10 Gbps Redundant Uplink
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="white-bento-card">
+                    <div class="bento-icon-box bg-tint-lavender">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="bento-card-title">Automated Daily Backups & Staging</h3>
+                    <p class="bento-card-desc">
+                        Sleep peacefully knowing your website files and MySQL databases are backed up automatically every 24 hours with single-click instant rollbacks.
+                    </p>
+                    <div class="bento-footer-badge">
+                        <i class="fa-solid fa-arrows-rotate text-blue"></i> Zero-Downtime Restores
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="white-bento-card">
+                    <div class="bento-icon-box bg-tint-green">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3 class="bento-card-title">Multi-Layer Data Security Shield</h3>
+                    <p class="bento-card-desc">
+                        Safeguard customer transactions and sensitive data with Imunify360 AI defense, automated Let's Encrypt SSL certificates, and DDoS mitigation.
+                    </p>
+                    <div class="bento-footer-badge">
+                        <i class="fa-solid fa-lock text-green"></i> ISO 27001 Datacenters
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Steps (Qarin 3 Process Cards: "Designed for how modern teams work") -->
+    <section class="section-container" id="how-it-works">
+        <div class="container">
+            <div class="section-title-center text-center">
+                <span class="pill-category">WORKFLOW</span>
+                <h2 class="title-primary">Designed for How Modern Teams Work</h2>
+                <p class="paragraph-primary">
+                    A smarter, zero-friction way to launch and manage mission-critical web hosting.
+                </p>
+            </div>
+
+            <div class="workflow-three-col">
+                <div class="workflow-step-box">
+                    <span class="step-counter-tag">STEP 01</span>
+                    <h3 class="step-box-title">Start with Instant Setup</h3>
+                    <p class="step-box-desc">
+                        Select your ideal hosting tier, pick your domain name, and deploy your server in your preferred datacenter region in under 60 seconds.
+                    </p>
+                    <div class="step-checklist-item">
+                        <i class="fa-solid fa-check text-blue"></i> Instant cPanel credentials sent to email
+                    </div>
+                </div>
+
+                <div class="workflow-step-box">
+                    <span class="step-counter-tag">STEP 02</span>
+                    <h3 class="step-box-title">1-Click Deploy or Free Migration</h3>
+                    <p class="step-box-desc">
+                        Launch your WordPress or custom application with 1-click, or let our senior engineers migrate your existing site for 100% free with zero downtime.
+                    </p>
+                    <div class="step-checklist-item">
+                        <i class="fa-solid fa-check text-blue"></i> Completed in under 90 minutes
+                    </div>
+                </div>
+
+                <div class="workflow-step-box">
+                    <span class="step-counter-tag">STEP 03</span>
+                    <h3 class="step-box-title">Scale with Dedicated 24/7 Care</h3>
+                    <p class="step-box-desc">
+                        Enjoy continuous peace of mind. Our cloud specialists assist you around the clock in English, Hindi, and Kannada via WhatsApp, phone, and tickets.
+                    </p>
+                    <div class="step-checklist-item">
+                        <i class="fa-solid fa-check text-blue"></i> Real engineers, zero bot loops
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FROM TEMPLATE: Powerful Integrations with Essential Developer Tools -->
+    <section class="section-container bg-light-section" id="integrations">
+        <div class="container">
+            <div class="section-title-center text-center">
+                <span class="pill-category">INTEGRATIONS</span>
+                <h2 class="title-primary">Powerful Integrations with Your Essential Tools</h2>
+                <p class="paragraph-primary">
+                    Connect your hosting environment with git workflows, modern frameworks, CMS engines, and databases in a single click.
+                </p>
+            </div>
+
+            <!-- 12 Developer Integrations Grid -->
+            <div class="integrations-grid">
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-wordpress text-blue"></i></div>
+                    <strong class="int-name">WordPress</strong>
+                    <span class="int-desc">1-Click WP & LiteSpeed</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-shopify text-green"></i></div>
+                    <strong class="int-name">WooCommerce</strong>
+                    <span class="int-desc">High-Conversions Store</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-cpanel" style="color: #ff6c2c;"></i></div>
+                    <strong class="int-name">cPanel Control</strong>
+                    <span class="int-desc">Industry-Standard GUI</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-node-js" style="color: #68a063;"></i></div>
+                    <strong class="int-name">Node.js</strong>
+                    <span class="int-desc">Fast Async Backends</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-laravel" style="color: #ff2d20;"></i></div>
+                    <strong class="int-name">Laravel</strong>
+                    <span class="int-desc">PHP 8.2+ Enterprise</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-git-alt" style="color: #f05032;"></i></div>
+                    <strong class="int-name">Git CI/CD</strong>
+                    <span class="int-desc">Automated Deployments</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-solid fa-database" style="color: #d82c20;"></i></div>
+                    <strong class="int-name">Redis Cache</strong>
+                    <span class="int-desc">In-Memory Object Store</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-solid fa-lock" style="color: #2b7489;"></i></div>
+                    <strong class="int-name">Let's Encrypt</strong>
+                    <span class="int-desc">Auto-Renewing Free SSL</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-cloudflare" style="color: #f38020;"></i></div>
+                    <strong class="int-name">Cloudflare</strong>
+                    <span class="int-desc">Global Edge Caching</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-python" style="color: #3776ab;"></i></div>
+                    <strong class="int-name">Python WSGI</strong>
+                    <span class="int-desc">Django & Flask Native</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-brands fa-docker" style="color: #2496ed;"></i></div>
+                    <strong class="int-name">Docker</strong>
+                    <span class="int-desc">Containerized Apps</span>
+                </div>
+                <div class="integration-card">
+                    <div class="int-icon"><i class="fa-solid fa-server" style="color: #00758f;"></i></div>
+                    <strong class="int-name">MySQL / MariaDB</strong>
+                    <span class="int-desc">Optimized NVMe Storage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section (Qarin "Simple plans. Smarter growth.") -->
+    <section class="section-container" id="pricing">
+        <div class="container">
+            <div class="section-title-center text-center">
+                <span class="pill-category">PRICING</span>
+                <h2 class="title-primary">Simple Plans. Smarter Growth.</h2>
+                <p class="paragraph-primary">
+                    Transparent, predictable pricing with no renewal penalties. Choose your billing frequency and currency below.
+                </p>
+
+                <!-- Billing Frequency & Dual Currency Switcher -->
+                <div class="billing-pill-container" style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
+                    <div class="billing-capsule-wrap" role="radiogroup">
+                        <button class="billing-tab-item" id="tab-monthly" onclick="window.setDuration('monthly')">Monthly</button>
+                        <button class="billing-tab-item active" id="tab-yearly" onclick="window.setDuration('yearly')">
+                            Yearly <span class="badge-discount-save">SAVE 40%</span>
+                        </button>
+                    </div>
+
+                    <!-- Dual Currency Selector ($ USD / ₹ INR) -->
+                    <div class="currency-toggle-capsule" title="Toggle Currency">
+                        <button class="capsule-btn active" data-curr="USD" onclick="window.setCurrency('USD')">$ USD</button>
+                        <button class="capsule-btn" data-curr="INR" onclick="window.setCurrency('INR')">₹ INR</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Clean White Pricing Cards -->
+            <div class="pricing-three-cards-grid">
+                <!-- Card 1: Basic -->
+                <div class="qarin-price-card" data-plan="basic">
+                    <div class="price-header-section">
+                        <span class="plan-type-capsule">BASIC</span>
+                        <h3 class="plan-headline">For solo creators</h3>
+                        <p class="plan-sub-summary">Essential hosting for blogs, personal portfolios, and startup landing pages.</p>
+                    </div>
+
+                    <div class="price-digit-row">
+                        <div class="digits-flex">
+                            <span class="p-sign" id="price-sym-1">$</span>
+                            <span class="p-val" id="price-val-basic">3.49</span>
+                            <span class="p-unit">/ month</span>
+                        </div>
+                        <span class="p-subnote" id="price-note-basic">Billed annually (Save 40%)</span>
+                    </div>
+
+                    <button onclick="window.openDeployModal('Basic Starter')" class="btn btn-outline-qarin full-w">
+                        <span>Get Started for Free</span>
+                    </button>
+
+                    <div class="plan-features-checklist">
+                        <span class="features-header-title">What's included:</span>
+                        <ul>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>1 Website</strong> hosted</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>25 GB NVMe</strong> High-speed Disk</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>Unmetered</strong> Bandwidth</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>Free Lifetime SSL</strong> Certificate</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>Weekly</strong> Automated Backups</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> 5 Professional Business Emails</li>
+                            <li class="feat-disabled"><i class="fa-solid fa-minus text-muted"></i> Free Domain Name</li>
+                            <li class="feat-disabled"><i class="fa-solid fa-minus text-muted"></i> LiteSpeed Enterprise Cache</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Standard (Most Popular with Blue Accent) -->
+                <div class="qarin-price-card featured-highlight" data-plan="standard">
+                    <div class="popular-ribbon-pill">MOST POPULAR</div>
+                    <div class="price-header-section">
+                        <span class="plan-type-capsule text-blue">STANDARD</span>
+                        <h3 class="plan-headline">Business & WordPress</h3>
+                        <p class="plan-sub-summary">High-performance LiteSpeed hosting for e-commerce, WooCommerce & agencies.</p>
+                    </div>
+
+                    <div class="price-digit-row">
+                        <div class="digits-flex">
+                            <span class="p-sign text-blue" id="price-sym-2">$</span>
+                            <span class="p-val text-blue" id="price-val-standard">6.99</span>
+                            <span class="p-unit">/ month</span>
+                        </div>
+                        <span class="p-subnote text-green" id="price-note-standard">Billed annually (Save 40% + Free Domain)</span>
+                    </div>
+
+                    <button onclick="window.openDeployModal('Standard Business')" class="btn btn-qarin-blue full-w">
+                        <span>Get Started Now</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="plan-features-checklist">
+                        <span class="features-header-title">Everything in Basic, plus:</span>
+                        <ul>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>100 Websites</strong> hosted</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>100 GB Gen-4 NVMe</strong> Storage</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>Free Domain Name</strong> (1st Year)</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>LiteSpeed Enterprise Caching</strong></li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>Automated Daily Backups</strong></li>
+                            <li><i class="fa-solid fa-check text-blue"></i> Unlimited Professional Business Emails</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> 1-Click Staging & Cloning</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> Priority 24/7 Senior Engineer Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Premium -->
+                <div class="qarin-price-card" data-plan="premium">
+                    <div class="price-header-section">
+                        <span class="plan-type-capsule">PREMIUM</span>
+                        <h3 class="plan-headline">For scaling teams</h3>
+                        <p class="plan-sub-summary">Dedicated cloud vCPU, guaranteed memory, and root control for demanding web apps.</p>
+                    </div>
+
+                    <div class="price-digit-row">
+                        <div class="digits-flex">
+                            <span class="p-sign" id="price-sym-3">$</span>
+                            <span class="p-val" id="price-val-premium">18.99</span>
+                            <span class="p-unit">/ month</span>
+                        </div>
+                        <span class="p-subnote" id="price-note-premium">Billed annually (Save 40%)</span>
+                    </div>
+
+                    <button onclick="window.openDeployModal('Premium Cloud VPS')" class="btn btn-outline-qarin full-w">
+                        <span>Deploy Cloud VPS</span>
+                    </button>
+
+                    <div class="plan-features-checklist">
+                        <span class="features-header-title">Enterprise Infrastructure:</span>
+                        <ul>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>4 vCPU Cores</strong> (AMD EPYC™)</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> <strong>8 GB Dedicated RAM</strong></li>
+                            <li><i class="fa-solid fa-check text-blue"></i> 160 GB NVMe Disk Array</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> Dedicated IPv4 Address</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> Full Root Access (SSH & Terminal)</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> Docker, Node, Python, Ruby ready</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> 10 Gbps Redundant Uplink</li>
+                            <li><i class="fa-solid fa-check text-blue"></i> 99.99% Guaranteed SLA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section (Qarin 2-Column Minimalist Review Cards with Real HiPapa Clients) -->
+    <section class="section-container bg-light-section" id="reviews">
+        <div class="container">
+            <div class="section-title-center text-center">
+                <span class="pill-category">TESTIMONIALS</span>
+                <h2 class="title-primary">Trusted by 14,000+ Users Worldwide</h2>
+                <p class="paragraph-primary">
+                    Sharing their successes and transformative experiences with HiPapa's powerful cloud hosting solutions.
+                </p>
+            </div>
+
+            <div class="reviews-two-col-grid">
+                <!-- Review 1 (Real HiPapa Testimonial) -->
+                <div class="clean-review-box">
+                    <div class="star-rating-row">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-body-text">
+                        “HiPapa gave us the performance and support the big corporate brands couldn’t. Indian billing, real engineer support over WhatsApp—perfect for our high-load e-commerce platform!”
+                    </p>
+                    <div class="reviewer-footer-row">
+                        <div class="avatar-circle-box bg-blue">MD</div>
+                        <div>
+                            <strong class="reviewer-name">Manoj Deshpande</strong>
+                            <span class="reviewer-role">Founder, VEnergizEV Technologies (Bangalore)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 (Real HiPapa Testimonial) -->
+                <div class="clean-review-box">
+                    <div class="star-rating-row">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-body-text">
+                        “Affordable, transparent, and built for India’s businesses. Our online store runs faster than ever with LiteSpeed and their instant 100% free migration took zero downtime.”
+                    </p>
+                    <div class="reviewer-footer-row">
+                        <div class="avatar-circle-box bg-green">SD</div>
+                        <div>
+                            <strong class="reviewer-name">Swati Deshmukh</strong>
+                            <span class="reviewer-role">E-Commerce Merchant, Pune</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="clean-review-box">
+                    <div class="star-rating-row">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-body-text">
+                        “I can’t say enough good things about HiPapa and their support team. They handled our complete website migration in less than an hour with zero downtime. Real support that actually responds!”
+                    </p>
+                    <div class="reviewer-footer-row">
+                        <div class="avatar-circle-box bg-indigo">AL</div>
+                        <div>
+                            <strong class="reviewer-name">Alexandre Laurent</strong>
+                            <span class="reviewer-role">Creative Director, Studio Nine Paris</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="clean-review-box">
+                    <div class="star-rating-row">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-body-text">
+                        “We’ve tried AWS, GoDaddy, and Hostinger, but none compare to HiPapa’s simplicity and local latency. Indian billing with automated GST credit invoices makes corporate accounting effortless.”
+                    </p>
+                    <div class="reviewer-footer-row">
+                        <div class="avatar-circle-box bg-blue">KR</div>
+                        <div>
+                            <strong class="reviewer-name">Karthik Ramaswamy</strong>
+                            <span class="reviewer-role">Tech Lead, CloudScale Bangalore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FROM TEMPLATE: Blog & Insights from HiPapa Knowledge Hub -->
+    <section class="section-container" id="blog">
+        <div class="container">
+            <div class="section-title-center text-center">
+                <span class="pill-category">KNOWLEDGE HUB</span>
+                <h2 class="title-primary">From the HiPapa Cloud Blog</h2>
+                <p class="paragraph-primary">
+                    Insights, benchmarks, and optimization tutorials from our senior infrastructure team.
+                </p>
+            </div>
+
+            <div class="blog-three-cards-grid">
+                <!-- Blog 1 -->
+                <article class="blog-card-item">
+                    <div class="blog-card-thumb">
+                        <div class="blog-thumb-badge"><i class="fa-solid fa-bolt text-blue"></i> Speed</div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80" alt="Server Acceleration">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta-line">
+                            <span>Oct 12, 2026</span> &bull; <span>5 min read</span>
+                        </div>
+                        <h3 class="blog-item-title"><a href="#pricing">10 Ways LiteSpeed & HTTP/3 Transform WordPress Performance</a></h3>
+                        <p class="blog-item-excerpt">How server-level caching cuts TTFB to under 34ms and delivers flawless Google Core Web Vitals scores.</p>
+                        <a href="#pricing" class="blog-read-link">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog 2 -->
+                <article class="blog-card-item">
+                    <div class="blog-card-thumb">
+                        <div class="blog-thumb-badge"><i class="fa-solid fa-shield-halved text-green"></i> Security</div>
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80" alt="Cloud Security">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta-line">
+                            <span>Oct 08, 2026</span> &bull; <span>7 min read</span>
+                        </div>
+                        <h3 class="blog-item-title"><a href="#pricing">The Zero-Downtime cPanel Migration Playbook</a></h3>
+                        <p class="blog-item-excerpt">Step-by-step checklist our engineers use to transfer multi-gigabyte production databases without drops.</p>
+                        <a href="#pricing" class="blog-read-link">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="blog-card-item">
+                    <div class="blog-card-thumb">
+                        <div class="blog-thumb-badge"><i class="fa-solid fa-indian-rupee-sign text-blue"></i> Cloud Economy</div>
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&auto=format&fit=crop&q=80" alt="Global Cloud">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta-line">
+                            <span>Sep 29, 2026</span> &bull; <span>4 min read</span>
+                        </div>
+                        <h3 class="blog-item-title"><a href="#pricing">Why Indian Startups Are Moving to Dedicated NVMe Cloud</a></h3>
+                        <p class="blog-item-excerpt">Comparing unpredictable hyperscaler egress fees against transparent, predictable NVMe hosting tiers.</p>
+                        <a href="#pricing" class="blog-read-link">Read Full Guide <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Qarin "Got Questions?") -->
+    <section class="section-container bg-light-section" id="faq">
+        <div class="container narrow-faq-box">
+            <div class="section-title-center text-center">
+                <span class="pill-category">GOT QUESTIONS?</span>
+                <h2 class="title-primary">Frequently Asked Questions</h2>
+                <p class="paragraph-primary">
+                    Clear answers to help you choose the best hosting configuration for your project.
+                </p>
+            </div>
+
+            <div class="faq-accordion-group">
+                <!-- Item 1 -->
+                <div class="faq-accordion-panel active">
+                    <button class="faq-trigger-btn" onclick="window.toggleFaq(this)">
+                        <span>What is HiPapa Cloud?</span>
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </button>
+                    <div class="faq-body-collapse">
+                        <p>HiPapa Cloud is an ultra-fast web hosting and cloud infrastructure platform designed to power business websites, e-commerce stores, WordPress blogs, and custom developer applications with sub-second speeds and 99.99% uptime.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="faq-accordion-panel">
+                    <button class="faq-trigger-btn" onclick="window.toggleFaq(this)">
+                        <span>What services does HiPapa offer?</span>
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </button>
+                    <div class="faq-body-collapse">
+                        <p>We provide Managed WordPress Hosting, NVMe Web Hosting, Cloud VPS with root access, Dedicated Bare Metal Servers, Domain Registration, Business Email Solutions, and free white-glove site migration assistance.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="faq-accordion-panel">
+                    <button class="faq-trigger-btn" onclick="window.toggleFaq(this)">
+                        <span>Can international clients pay in USD?</span>
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </button>
+                    <div class="faq-body-collapse">
+                        <p>Yes! We fully support international clients via Stripe, PayPal, Visa, and Mastercard with USD billing and digital commercial invoices. Indian clients can also checkout seamlessly using UPI, Netbanking, and GST-compliant invoices.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="faq-accordion-panel">
+                    <button class="faq-trigger-btn" onclick="window.toggleFaq(this)">
+                        <span>How does free website migration work?</span>
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </button>
+                    <div class="faq-body-collapse">
+                        <p>Our migration engineers transfer your website files, MySQL databases, SSL certificates, and custom emails from your current host (GoDaddy, Hostinger, Bluehost, etc.) to HiPapa with 100% zero downtime, usually within 60 to 90 minutes.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="faq-accordion-panel">
+                    <button class="faq-trigger-btn" onclick="window.toggleFaq(this)">
+                        <span>Is there a money-back guarantee?</span>
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </button>
+                    <div class="faq-body-collapse">
+                        <p>Yes, all shared and WordPress hosting packages come with an unconditional 30-day money-back guarantee. If you are not completely satisfied, request a cancellation for an immediate full refund.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qarin Pre-Footer Callout Banner (Deep Midnight Navy Container) -->
+    <section class="banner-cta-container">
+        <div class="container">
+            <div class="qarin-midnight-card text-center">
+                <span class="cta-mini-pill">GET STARTED TODAY</span>
+                <h2 class="cta-card-heading">Get started today and unlock the power of ultra-fast cloud hosting</h2>
+                <p class="cta-card-sub">
+                    Join thousands of high-growth businesses and agencies powered by HiPapa Cloud. 
+                    Free migration and 24/7 engineer support included.
+                </p>
+                <div class="cta-btn-pair">
+                    <a href="#pricing" class="btn btn-qarin-blue btn-lg">
+                        <span>Get Started Now</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/919972788225" target="_blank" rel="noopener" class="btn btn-secondary-white btn-lg">
+                        <i class="fa-brands fa-whatsapp text-green"></i> Chat with an Engineer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Site Footer (Screenshot 3 Exact Qarin Layout with Giant Watermark & Blue Toothed Cap) -->
+    <footer class="qarin-page-footer">
+        <!-- Blue Toothed Cap Strip at Top of Footer (from Screenshot 3) -->
+        <div class="footer-blue-strip" aria-hidden="true">
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+            <div class="footer-strip-bar"></div>
+        </div>
+
+        <!-- Giant Embossed Watermark (from Screenshot 3) -->
+        <div class="footer-watermark-bg" aria-hidden="true">
+            <span>HiPapa</span>
+        </div>
+
+        <div class="container footer-content-wrap">
+            <div class="footer-top-meta-row">
+                <div class="footer-brand-side">
+                    <a href="#hero" class="nav-brand footer-logo">
+                        <div class="brand-circles-logo logo-sm">
+                            <span class="circle-dark"></span>
+                            <span class="circle-bright"></span>
+                        </div>
+                        <span class="brand-title">HiPapa</span>
+                    </a>
+                    <p class="footer-desc-text">
+                        HiPapa gives you the cloud infrastructure and speed needed to scale your digital presence with clarity, high availability, and zero compromise.
+                    </p>
+                    <div class="footer-icons-row">
+                        <a href="https://www.linkedin.com/company/hi-papa/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/hipapa_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61577168709237" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://wa.me/919972788225" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-green"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-copyright-side">
+                    <span class="footer-rights-label">All Rights Reserved.</span>
+                    <p class="footer-rights-sub">© 2026 HiPapa by Sanna Innovations, a premium cloud hosting platform</p>
+                </div>
+            </div>
+
+            <!-- Footer Links Columns (Screenshot 3) -->
+            <div class="footer-links-three-grid">
+                <div class="footer-links-col">
+                    <h4 class="footer-col-heading">Product</h4>
+                    <ul class="footer-col-list">
+                        <li><a href="#hero">Landing Page</a></li>
+                        <li><a href="#core-features">Key Features</a></li>
+                        <li><a href="#features">Cloud Infrastructure</a></li>
+                        <li><a href="#pricing">Pricing Plans</a></li>
+                        <li><a href="#pricing">WordPress Hosting</a></li>
+                        <li><a href="#pricing">NVMe Web Hosting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-col-heading">Company</h4>
+                    <ul class="footer-col-list">
+                        <li><a href="#hero">About HiPapa</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#reviews">Case Studies</a></li>
+                        <li><a href="#blog">Knowledge Hub</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-col-heading">Support</h4>
+                    <ul class="footer-col-list">
+                        <li><a href="https://wa.me/919972788225" target="_blank" rel="noopener">WhatsApp Support Desk</a></li>
+                        <li><a href="#pricing">Request Demo</a></li>
+                        <li><a href="mailto:info@hipapa.in">info@hipapa.in</a></li>
+                        <li><a href="tel:+919972788225">+91 99 72 788225</a></li>
+                        <li><a href="https://hipapa.in" target="_blank" rel="noopener">Client Portal Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Server Deploy Modal -->
+    <div class="modal-backdrop-wrap" id="deploy-modal" style="display: none;">
+        <div class="modal-card-container">
+            <button class="modal-close-cross" onclick="window.closeDeployModal()"><i class="fa-solid fa-xmark"></i></button>
+            <span class="modal-tag-pill">CONFIGURING SERVER</span>
+            <h3 class="modal-title-bold" id="modal-plan-title">Deploy Standard Plan</h3>
+            <p class="modal-subtitle-text">Choose your target edge location and confirm configuration.</p>
+
+            <div class="modal-form-content">
+                <div class="form-group-block">
+                    <label class="form-item-label">Select Deployment Region:</label>
+                    <div class="region-chips-grid">
+                        <button class="region-chip-btn active" type="button" onclick="window.selectRegion(this, 'Mumbai')">🇮🇳 Mumbai (12ms)</button>
+                        <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'Frankfurt')">🇩🇪 Frankfurt (31ms)</button>
+                        <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'New York')">🇺🇸 New York (22ms)</button>
+                        <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'Singapore')">🇸🇬 Singapore (28ms)</button>
+                    </div>
+                </div>
+
+                <div class="form-group-block">
+                    <label class="form-item-label">Domain or Project Name:</label>
+                    <input type="text" class="form-text-input" id="modal-domain-input" placeholder="e.g. mycompany.com">
+                </div>
+
+                <div class="modal-summary-card">
+                    <div class="summary-line-row">
+                        <span>Selected Plan:</span>
+                        <strong id="modal-plan-name">Standard (Yearly)</strong>
+                    </div>
+                    <div class="summary-line-row">
+                        <span>Effective Monthly:</span>
+                        <strong class="text-blue" id="modal-plan-price">$6.99 /mo</strong>
+                    </div>
+                </div>
+
+                <button class="btn btn-qarin-blue full-w btn-lg" onclick="window.confirmDeploy()">
+                    <span>Proceed to Instant Checkout</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Engine -->
+    <script src="script.js"></script>
+</body>
+</html>

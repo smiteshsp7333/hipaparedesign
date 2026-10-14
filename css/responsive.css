@@ -1,0 +1,345 @@
+/* ==========================================================================
+   White Horse Manpower — Responsive Stylesheet
+   Mobile First & Breakpoints: 1024px, 768px, 480px
+   ========================================================================== */
+
+/* ── Tablets & Below (max-width: 1024px) ── */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-search-box {
+    flex-direction: column;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-floating-badge {
+    position: static;
+    margin-top: 20px;
+    display: inline-flex;
+  }
+
+  .practices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .consultra-bento-story-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .consultra-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .hiring-models-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hiring-model-card[style*="span 3"] {
+    grid-column: span 2 !important;
+  }
+
+  .solutions-wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .assoc-trust-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Tablet Medium Viewports (max-width: 880px) ── */
+@media (max-width: 880px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ── Mobile Viewports (max-width: 768px) ── */
+@media (max-width: 768px) {
+  .topbar {
+    display: none; /* Hide topbar on small screens for cleaner header */
+  }
+
+  .nav-container {
+    height: 76px;
+  }
+
+  .brand-logo img,
+  .brand-logo .brand-logo-img,
+  .brand-logo-img {
+    height: 58px !important;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 24px;
+    gap: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--slate-100);
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .hero {
+    padding: 60px 0 80px;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consultra-metrics-strip {
+    grid-template-columns: 1fr;
+    padding: 24px 20px;
+    gap: 12px;
+  }
+
+  .consultra-metric-col {
+    border-right: none;
+    border-bottom: 1px solid #EDEDED;
+    padding: 14px 0;
+  }
+
+  .consultra-metric-col:last-child {
+    border-bottom: none;
+  }
+
+  .consultra-metric-value {
+    font-size: 2.1rem;
+  }
+
+  .consultra-heroic-cta {
+    padding: 40px 20px;
+  }
+
+  .consultra-heroic-cta h2 {
+    font-size: 1.85rem;
+  }
+
+  .consultra-story-card {
+    padding: 28px 20px;
+  }
+
+  .consultra-quote-text {
+    font-size: 1.2rem;
+  }
+
+  .consultra-chip-cloud-card {
+    padding: 28px 20px;
+  }
+
+  .candidate-trust-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 20px;
+    padding: 28px 20px;
+  }
+
+  .trust-card-badge {
+    margin: 0 auto;
+  }
+
+  .hiring-models-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hiring-model-card[style*="span 3"] {
+    grid-column: span 1 !important;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .split-cta-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-box {
+    padding: 32px 24px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .assoc-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .assoc-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 20px;
+  }
+
+  .assoc-cta-banner .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ── Small Devices (max-width: 580px) ── */
+@media (max-width: 580px) {
+  .assoc-trust-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-tri-hubs {
+    grid-template-columns: 1fr;
+  }
+
+  .office-pills {
+    flex-direction: column;
+  }
+
+  .assoc-explorer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+/* ── Small Devices (max-width: 480px) ── */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .hero-lead {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+  .topbar-left { gap: 10px; }
+}
+
+@media (max-width: 768px) {
+  .topbar-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .topbar-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+  }
+  .topbar-contact-group {
+    flex-wrap: wrap;
+  }
+  .topbar-right {
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+}
+
+
+/* Topbar Mobile / Tablet Single Line Scrolling */
+@media (max-width: 1100px) {
+  .topbar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 7px 0;
+  }
+  .topbar-single-line {
+    justify-content: flex-start;
+    padding: 0 10px;
+    width: max-content;
+  }
+}
