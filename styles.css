@@ -2329,3 +2329,308 @@ button {
     .dash-center-tabs { display: none; }
     .logos-flex-track { gap: 24px; }
 }
+
+
+/* ==========================================================================
+   PERFORMANCE & SMOOTH SCROLL OPTIMIZATIONS
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Lighten ambient background to eliminate GPU compositing lag */
+.ambient-glow-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.45;
+    pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* ==========================================================================
+   HOMEPAGE TEXT REVEAL ANIMATIONS (Modern Staggered Reveal)
+   ========================================================================== */
+.hero-reveal-wrap {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.reveal-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 6px;
+    line-height: 1.15;
+}
+
+.reveal-chunk {
+    display: inline-block;
+    transform: translateY(120%);
+    opacity: 0;
+    animation: revealSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-chunk.d1 {
+    animation-delay: 0.15s;
+}
+
+.reveal-chunk.d2 {
+    animation-delay: 0.38s;
+}
+
+@keyframes revealSlideUp {
+    0% {
+        transform: translateY(120%);
+        opacity: 0;
+        filter: blur(6px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.reveal-gradient-text {
+    background: linear-gradient(135deg, #18191b 15%, #2563eb 55%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Hardware accelerated transitions */
+.qarin-main-dashboard,
+.dark-feature-card,
+.white-bento-card,
+.qarin-price-card {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* ==========================================================================
+   IMPROVED MOBILE RESPONSIVENESS (< 768px & < 480px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Navbar Mobile Fit */
+    .qarin-navbar {
+        width: calc(100% - 20px) !important;
+        margin: 10px auto !important;
+        border-radius: 16px !important;
+    }
+
+    .nav-container {
+        height: 56px !important;
+        padding: 0 16px !important;
+    }
+
+    .brand-title {
+        font-size: 19px !important;
+    }
+
+    /* Hero Headline & CTA */
+    .hero-stage {
+        padding: 40px 0 30px !important;
+    }
+
+    .hero-content-center {
+        padding: 0 16px !important;
+    }
+
+    .hero-headline {
+        font-size: clamp(28px, 6.5vw, 42px) !important;
+        line-height: 1.2 !important;
+        margin-bottom: 16px !important;
+    }
+
+    .hero-paragraph {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 24px !important;
+        padding: 0 4px !important;
+    }
+
+    .hero-action-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        gap: 12px !important;
+    }
+
+    .hero-action-buttons .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 13px 20px !important;
+        font-size: 14px !important;
+    }
+
+    /* Dashboard Mobile Shell */
+    .dashboard-outer-anchor {
+        padding: 0 12px !important;
+    }
+
+    .qarin-main-dashboard {
+        padding: 16px 14px !important;
+        border-radius: 20px !important;
+    }
+
+    .dash-inner-navbar {
+        padding-bottom: 12px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .dash-nav-right .dash-icon-btn {
+        display: none !important;
+    }
+
+    .dash-welcome-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .welcome-greeting {
+        font-size: 18px !important;
+    }
+
+    .welcome-sub {
+        font-size: 13px !important;
+    }
+
+    .welcome-action-controls {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .date-selector-pill,
+    .export-data-pill {
+        flex: 1 1 100% !important;
+    }
+
+    .pill-dropdown-trigger,
+    .export-btn-capsule {
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+
+    .dash-subtabs-row {
+        overflow-x: auto !important;
+        flex-wrap: nowrap !important;
+        gap: 6px !important;
+        padding-bottom: 6px !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .subtab-item {
+        white-space: nowrap !important;
+        font-size: 12px !important;
+        padding: 6px 12px !important;
+    }
+
+    /* Stacked Barchart on Mobile */
+    .qarin-stacked-barchart {
+        gap: 6px !important;
+        padding: 18px 4px 6px !important;
+        overflow-x: auto !important;
+    }
+
+    .chart-day-pillar {
+        min-width: 32px !important;
+    }
+
+    .chart-footer-metrics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        padding-top: 14px !important;
+    }
+
+    .sub-metric-item .sub-val {
+        font-size: 15px !important;
+    }
+
+    .sub-metric-item .sub-lbl {
+        font-size: 11px !important;
+    }
+
+    /* Dark Inset Section */
+    .dark-features-card-inset {
+        padding: 36px 18px !important;
+        border-radius: 20px !important;
+    }
+
+    .dark-features-title {
+        font-size: clamp(24px, 6vw, 32px) !important;
+        line-height: 1.25 !important;
+    }
+
+    .dark-features-sub {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+    }
+
+    .dark-feature-card {
+        padding: 24px 18px !important;
+        border-radius: 16px !important;
+    }
+
+    .dark-card-title {
+        font-size: 17px !important;
+    }
+
+    /* Pricing Section */
+    .billing-pill-container {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .qarin-price-card {
+        padding: 28px 20px !important;
+        border-radius: 18px !important;
+    }
+
+    .plan-headline {
+        font-size: 19px !important;
+    }
+
+    .p-val {
+        font-size: 36px !important;
+    }
+
+    /* Footer on Mobile */
+    .footer-blue-strip {
+        gap: 4px !important;
+        height: 12px !important;
+        padding: 0 12px !important;
+    }
+
+    .footer-watermark-bg span {
+        font-size: clamp(48px, 14vw, 110px) !important;
+        top: 20px !important;
+    }
+
+    .footer-content-wrap {
+        padding-top: 20px !important;
+    }
+}

@@ -128,68 +128,42 @@
     // =========================================================================
     // SCROLL-DRIVEN BLUE CURTAIN & DASHBOARD 3D PARALLAX ENGINE
     // =========================================================================
+    // Lightweight smooth scroll and parallax without layout thrashing
     let ticking = false;
 
     function handleScrollAnimations() {
         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-        // 1. Frosted Glass Navbar Scroll Effect
+        // Navbar scrolled state
         const header = document.getElementById('header');
         if (header) {
-            if (scrollY > 24) {
+            if (scrollY > 20) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         }
 
-        // 2. Dashboard Parallax & 3D Perspective Tilt
-        const dashboardCard = document.getElementById('main-dashboard-card');
+        // Hero Curtain lightweight parallax (translate3d only, no getBoundingClientRect)
         const curtainWrap = document.getElementById('curtain-img-wrap');
-        const curtainStripes = document.getElementById('curtain-stripes');
-        const heroCurtain = document.getElementById('hero-curtain');
+        const dashboardCard = document.getElementById('main-dashboard-card');
 
-        if (heroCurtain) {
-            const rect = heroCurtain.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+        if (scrollY < 900) {
+            if (curtainWrap) {
+                const curtainY = (scrollY * 0.12).toFixed(1);
+                curtainWrap.style.transform = `translate3d(0, ${curtainY}px, 0)`;
+            }
 
-            // Check if hero curtain is in viewport
-            if (rect.bottom > 0 && rect.top < windowHeight) {
-                // Calculate scroll progress through hero
-                const heroProgress = Math.min(Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0), 1);
-                const relativeScroll = Math.max(0, scrollY);
-
-                // Parallax shift and scale on the curtain backdrop
-                const curtainParallaxY = relativeScroll * 0.12;
-                const curtainScale = 1.0 + (heroProgress * 0.08);
-
-                if (curtainWrap) {
-                    curtainWrap.style.setProperty('--curtain-parallax-y', `${curtainParallaxY}px`);
-                    curtainWrap.style.setProperty('--curtain-scale', curtainScale.toFixed(3));
-                }
-
-                // Vertical light stripes parallax
-                if (curtainStripes) {
-                    const stripesParallaxY = relativeScroll * 0.06;
-                    curtainStripes.style.setProperty('--stripes-parallax-y', `${stripesParallaxY}px`);
-                }
-
-                // 3D Perspective Tilt on Dashboard Card
-                // Starts tilted slightly backwards at top, straightens up into focus as user scrolls
-                if (dashboardCard) {
-                    const tiltProgress = Math.min(Math.max(scrollY / 450, 0), 1);
-                    const rotateX = (3.5 * (1 - tiltProgress)).toFixed(2);
-                    const scale = (0.97 + (0.03 * tiltProgress)).toFixed(3);
-                    const translateY = (-15 * tiltProgress).toFixed(1);
-
-                    dashboardCard.style.setProperty('--dash-rotate', `${rotateX}deg`);
-                    dashboardCard.style.setProperty('--dash-scale', scale);
-                    dashboardCard.style.setProperty('--dash-translate-y', `${translateY}px`);
-                }
+            if (dashboardCard && window.innerWidth > 768) {
+                const tiltProgress = Math.min(scrollY / 450, 1);
+                const rotateX = (3.5 * (1 - tiltProgress)).toFixed(2);
+                const scale = (0.97 + (0.03 * tiltProgress)).toFixed(3);
+                const translateY = (-12 * tiltProgress).toFixed(1);
+                dashboardCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) scale(${scale}) translate3d(0, ${translateY}px, 0)`;
             }
         }
 
-        // 3. Scroll Spy for Navbar Items
+        // Scroll spy for navbar
         const sections = [
             { id: 'hero', nav: 'Overview' },
             { id: 'core-features', nav: 'Features' },
@@ -205,11 +179,8 @@
         let currentSectionId = 'hero';
         for (const sec of sections) {
             const el = document.getElementById(sec.id);
-            if (el) {
-                const top = el.offsetTop - 140;
-                if (scrollY >= top) {
-                    currentSectionId = sec.id;
-                }
+            if (el && scrollY >= (el.offsetTop - 140)) {
+                currentSectionId = sec.id;
             }
         }
 
