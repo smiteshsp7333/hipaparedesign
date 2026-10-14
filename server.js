@@ -2,16 +2,20 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Pre-read files so NFT bundles them into the lambda
-const indexHtml = fs.readFileSync(path.join(__dirname, 'index.html'));
+// Pre-read files so Vercel NFT bundles them and responses are instant
+let indexHtml = Buffer.from('');
 let stylesCss = Buffer.from('');
 let scriptJs = Buffer.from('');
+let curtainImg = Buffer.from('');
 
+try { indexHtml = fs.readFileSync(path.join(__dirname, 'index.html')); } catch (e) {}
 try { stylesCss = fs.readFileSync(path.join(__dirname, 'styles.css')); } catch (e) {}
 try { scriptJs = fs.readFileSync(path.join(__dirname, 'script.js')); } catch (e) {}
+try { curtainImg = fs.readFileSync(path.join(__dirname, 'assets/curtain-bg.png')); } catch (e) {}
 
-const server = http.createServer((req, res) => {
-    const url = req.url.split('?')[0];
+// Vercel Serverless Function Handler
+const handler = (req, res) => {
+    const url = (req.url || '/').split('?')[0];
 
     if (url === '/styles.css') {
         res.writeHead(200, { 'Content-Type': 'text/css; charset=utf-8' });
@@ -23,22 +27,23 @@ const server = http.createServer((req, res) => {
         return res.end(scriptJs);
     }
 
-    if (url === '/assets/curtain-bg.png') {
-        try {
-            const img = fs.readFileSync(path.join(__dirname, 'assets/curtain-bg.png'));
-            res.writeHead(200, { 'Content-Type': 'image/png' });
-            return res.end(img);
-        } catch (e) {}
+    if (url === '/assets/curtain-bg.png' && curtainImg.length > 0) {
+        res.writeHead(200, { 'Content-Type': 'image/png' });
+        return res.end(curtainImg);
     }
 
-    // Default to index.html
+    // Default to index.html with instant response
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(indexHtml);
-});
+};
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Export for Vercel Serverless execution
+module.exports = handler;
 
-module.exports = server;
+// Local development server runner
+if (require.main === module) {
+    const port = process.env.PORT || 3000;
+    http.createServer(handler).listen(port, () => {
+        console.log(`Local server running at http://localhost:${port}/`);
+    });
+}
