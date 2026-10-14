@@ -2742,6 +2742,21 @@ body {
     }
 }
 
+
+.footer-brand .site-main-logo {
+    background: #ffffff;
+    padding: 6px 14px;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+.site-main-logo {
+    height: 44px !important;
+    width: auto !important;
+    max-width: 170px !important;
+    display: inline-block !important;
+    object-fit: contain !important;
+    vertical-align: middle !important;
+}
 </style>
 </head>
 <body>
@@ -3511,16 +3526,16 @@ body {
                 <!-- Billing Frequency & Dual Currency Switcher -->
                 <div class="billing-pill-container" style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
                     <div class="billing-capsule-wrap" role="radiogroup">
-                        <button class="billing-tab-item" id="tab-monthly" onclick="window.setDuration('monthly')">Monthly</button>
-                        <button class="billing-tab-item active" id="tab-yearly" onclick="window.setDuration('yearly')">
+                        <button type="button" class="billing-tab-item" id="tab-monthly" onclick="window.setDuration('monthly')">Monthly</button>
+                        <button type="button" class="billing-tab-item active" id="tab-yearly" onclick="window.setDuration('yearly')">
                             Yearly <span class="badge-discount-save">SAVE 40%</span>
                         </button>
                     </div>
 
                     <!-- Dual Currency Selector ($ USD / ₹ INR) -->
                     <div class="currency-toggle-capsule" title="Toggle Currency">
-                        <button class="capsule-btn active" data-curr="USD" onclick="window.setCurrency('USD')">$ USD</button>
-                        <button class="capsule-btn" data-curr="INR" onclick="window.setCurrency('INR')">₹ INR</button>
+                        <button type="button" class="capsule-btn active" id="curr-btn-usd" data-curr="USD" onclick="window.setCurrency('USD')">$ USD</button>
+                        <button type="button" class="capsule-btn" id="curr-btn-inr" data-curr="INR" onclick="window.setCurrency('INR')">₹ INR</button>
                     </div>
                 </div>
             </div>
@@ -4235,6 +4250,120 @@ body {
         updatePricingDisplay();
     });
 })();
+
+</script>
+<script>
+
+    // HiPapa Cloud — Dynamic Pricing Matrix & Filter Engine
+    (function () {
+        'use strict';
+
+        const pricingData = {
+            USD: {
+                symbol: '$',
+                monthly: { basic: '5.99', standard: '11.99', premium: '29.99' },
+                yearly: { basic: '3.49', standard: '6.99', premium: '18.99' },
+                notes: {
+                    monthly: 'Billed monthly',
+                    yearly: 'Billed annually (Save 40%)'
+                }
+            },
+            INR: {
+                symbol: '₹',
+                monthly: { basic: '249', standard: '499', premium: '1,499' },
+                yearly: { basic: '149', standard: '299', premium: '899' },
+                notes: {
+                    monthly: 'Billed monthly',
+                    yearly: 'Billed annually (Save 40% + Free Domain)'
+                }
+            }
+        };
+
+        var currentCurrency = 'USD';
+        var currentDuration = 'yearly';
+
+        window.setCurrency = function (curr) {
+            if (!pricingData[curr]) return;
+            currentCurrency = curr;
+
+            // Toggle active buttons
+            document.querySelectorAll('.currency-toggle-capsule .capsule-btn').forEach(function (btn) {
+                if (btn.getAttribute('data-curr') === curr) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            updatePricingDisplay();
+        };
+
+        window.setDuration = function (duration) {
+            currentDuration = duration;
+
+            var monthlyBtn = document.getElementById('tab-monthly');
+            var yearlyBtn = document.getElementById('tab-yearly');
+
+            if (monthlyBtn && yearlyBtn) {
+                if (duration === 'monthly') {
+                    monthlyBtn.classList.add('active');
+                    yearlyBtn.classList.remove('active');
+                } else {
+                    yearlyBtn.classList.add('active');
+                    monthlyBtn.classList.remove('active');
+                }
+            }
+
+            updatePricingDisplay();
+        };
+
+        function updatePricingDisplay() {
+            var data = pricingData[currentCurrency];
+            if (!data) return;
+            var rates = data[currentDuration];
+            if (!rates) return;
+
+            // Update currency symbols
+            ['price-sym-1', 'price-sym-2', 'price-sym-3'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = data.symbol;
+            });
+
+            // Update price digits
+            var elBasic = document.getElementById('price-val-basic');
+            var elStandard = document.getElementById('price-val-standard');
+            var elPremium = document.getElementById('price-val-premium');
+
+            if (elBasic) elBasic.textContent = rates.basic;
+            if (elStandard) elStandard.textContent = rates.standard;
+            if (elPremium) elPremium.textContent = rates.premium;
+
+            // Update billing subnotes
+            var noteText = data.notes[currentDuration];
+            ['price-note-basic', 'price-note-standard', 'price-note-premium'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) el.textContent = noteText;
+            });
+        }
+
+        // Direct event listener binding
+        document.addEventListener('DOMContentLoaded', function () {
+            var mBtn = document.getElementById('tab-monthly');
+            var yBtn = document.getElementById('tab-yearly');
+            var usdBtn = document.getElementById('curr-btn-usd');
+            var inrBtn = document.getElementById('curr-btn-inr');
+
+            if (mBtn) mBtn.addEventListener('click', function () { window.setDuration('monthly'); });
+            if (yBtn) yBtn.addEventListener('click', function () { window.setDuration('yearly'); });
+            if (usdBtn) usdBtn.addEventListener('click', function () { window.setCurrency('USD'); });
+            if (inrBtn) inrBtn.addEventListener('click', function () { window.setCurrency('INR'); });
+
+            updatePricingDisplay();
+        });
+
+        // Run immediately as well
+        updatePricingDisplay();
+    })();
 
 </script>
 </body>
