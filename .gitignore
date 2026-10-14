@@ -2,3 +2,5 @@ website_cpanel_ready.zip
 *.backup*
 node_modules
 .vercel
+
+local_server.cjs

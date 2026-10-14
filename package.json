@@ -1,8 +1,0 @@
-{
-  "name": "hipapa-cloud-hosting",
-  "version": "1.0.0",
-  "description": "HiPapa Cloud Web Hosting Platform",
-  "scripts": {
-    "start": "node server.js"
-  }
-}
