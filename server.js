@@ -7,6 +7,8 @@ let indexHtml = Buffer.from('');
 let stylesCss = Buffer.from('');
 let scriptJs = Buffer.from('');
 let curtainImg = Buffer.from('');
+let logoImg = Buffer.from('');
+try { logoImg = fs.readFileSync(path.join(__dirname, 'assets/hipapa-logo.png')); } catch (e) {}
 
 try { indexHtml = fs.readFileSync(path.join(__dirname, 'index.html')); } catch (e) {}
 try { stylesCss = fs.readFileSync(path.join(__dirname, 'styles.css')); } catch (e) {}
@@ -16,6 +18,11 @@ try { curtainImg = fs.readFileSync(path.join(__dirname, 'assets/curtain-bg.png')
 // Vercel Serverless Function Handler
 const handler = (req, res) => {
     const url = (req.url || '/').split('?')[0];
+
+    if (url === '/assets/hipapa-logo.png' && logoImg.length > 0) {
+        res.writeHead(200, { 'Content-Type': 'image/png' });
+        return res.end(logoImg);
+    }
 
     if (url === '/styles.css') {
         res.writeHead(200, { 'Content-Type': 'text/css; charset=utf-8' });
