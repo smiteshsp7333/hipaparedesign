@@ -617,45 +617,56 @@ button {
 .hero-curtain-container {
     position: relative;
     width: 100%;
-    padding: 50px 0 100px;
+    padding: 30px 0 90px;
     margin-top: 10px;
     perspective: 1200px;
+    overflow: visible;
 }
 
 .curtain-image-backdrop {
     position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%) scale(var(--curtain-scale, 1.02)) translateY(var(--curtain-parallax-y, 0px));
+    top: -30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     width: 100%;
-    max-width: 1380px;
-    height: 105%;
+    max-width: 1360px;
+    height: 110%;
     pointer-events: none;
     z-index: 1;
-    transition: transform 0.12s ease-out;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .curtain-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.96;
+    object-position: center top;
+    opacity: 0.94;
     border-radius: var(--radius-2xl);
-    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
 }
 
 .blue-curtain-stripes {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 40px;
+    gap: 36px;
     pointer-events: none;
     z-index: 2;
-    transform: translateY(var(--stripes-parallax-y, 0px));
-    transition: transform 0.15s ease-out;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .curtain-bar {
@@ -697,18 +708,69 @@ button {
 }
 
 .qarin-main-dashboard {
-    background: var(--glass-bg-primary);
-    backdrop-filter: var(--glass-blur-heavy);
-    -webkit-backdrop-filter: var(--glass-blur-heavy);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
     border-radius: var(--radius-2xl);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: var(--shadow-dashboard);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 32px 90px -15px rgba(37, 99, 235, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.9), inset 0 1px 2px rgba(255, 255, 255, 1);
     padding: 32px 36px 40px;
-    max-width: 1120px;
+    max-width: 1140px;
     margin: 0 auto;
     position: relative;
-    transform: perspective(1200px) rotateX(var(--dash-rotate, 0deg)) translateY(var(--dash-translate-y, 0px)) scale(var(--dash-scale, 1));
-    transition: transform 0.12s ease-out, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+    transform: perspective(1200px) translateY(0px) rotateX(0deg);
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.qarin-main-dashboard:hover {
+    box-shadow: 0 45px 120px -20px rgba(37, 99, 235, 0.32), 0 0 0 1px rgba(51, 85, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.dash-tab-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    border-radius: var(--radius-full);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+.dash-tab-btn:hover {
+    color: var(--qarin-blue);
+    background: rgba(51, 85, 255, 0.08);
+}
+.dash-tab-btn.active {
+    background: var(--qarin-black) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Toast Notification */
+.hipapa-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #18191b;
+    color: #ffffff;
+    padding: 14px 22px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.15);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 99999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.hipapa-toast.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 /* Inner Navbar */
@@ -2440,12 +2502,10 @@ body {
 }
 
 /* Hardware accelerated transitions */
-.qarin-main-dashboard,
 .dark-feature-card,
 .white-bento-card,
 .qarin-price-card {
-    will-change: transform;
-    transform: translateZ(0);
+  will-change: transform;
 }
 
 /* ==========================================================================
@@ -3986,46 +4046,77 @@ body {
         </div>
     </footer>
 
-    <!-- Interactive Server Deploy Modal -->
-    <div class="modal-backdrop-wrap" id="deploy-modal" style="display: none;">
+    <!-- Interactive Server Deploy & Order Modal -->
+    <div class="modal-backdrop-wrap" id="deploy-modal" style="display: none;" onclick="if(event.target === this) window.closeDeployModal()">
         <div class="modal-card-container">
-            <button class="modal-close-cross" onclick="window.closeDeployModal()"><i class="fa-solid fa-xmark"></i></button>
-            <span class="modal-tag-pill">CONFIGURING SERVER</span>
-            <h3 class="modal-title-bold" id="modal-plan-title">Deploy Standard Plan</h3>
-            <p class="modal-subtitle-text">Choose your target edge location and confirm configuration.</p>
-
-            <div class="modal-form-content">
-                <div class="form-group-block">
-                    <label class="form-item-label">Select Deployment Region:</label>
-                    <div class="region-chips-grid">
-                        <button class="region-chip-btn active" type="button" onclick="window.selectRegion(this, 'Mumbai')">🇮🇳 Mumbai (12ms)</button>
-                        <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'Frankfurt')">🇩🇪 Frankfurt (31ms)</button>
-                        <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'New York')">🇺🇸 New York (22ms)</button>
-                        <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'Singapore')">🇸🇬 Singapore (28ms)</button>
-                    </div>
-                </div>
-
-                <div class="form-group-block">
-                    <label class="form-item-label">Domain or Project Name:</label>
-                    <input type="text" class="form-text-input" id="modal-domain-input" placeholder="e.g. mycompany.com">
-                </div>
-
-                <div class="modal-summary-card">
-                    <div class="summary-line-row">
-                        <span>Selected Plan:</span>
-                        <strong id="modal-plan-name">Standard (Yearly)</strong>
-                    </div>
-                    <div class="summary-line-row">
-                        <span>Effective Monthly:</span>
-                        <strong class="text-blue" id="modal-plan-price">$6.99 /mo</strong>
-                    </div>
-                </div>
-
-                <button class="btn btn-qarin-blue full-w btn-lg" onclick="window.confirmDeploy()">
-                    <span>Proceed to Instant Checkout</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
+            <button class="modal-close-cross" onclick="window.closeDeployModal()" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span class="modal-tag-pill" style="background: var(--qarin-blue-light); color: var(--qarin-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 9999px;">CLOUD PROVISIONING</span>
+                <span class="badge-discount-save" id="modal-discount-tag">40% OFF ACTIVE</span>
             </div>
+            <h3 class="modal-title-bold" id="modal-plan-title" style="font-size: 22px; margin-bottom: 6px;">Deploy Standard Business</h3>
+            <p class="modal-subtitle-text" style="font-size: 13.5px; color: #64748b; margin-bottom: 20px;">
+                Instant setup on NVMe enterprise storage. Speak directly with a cloud engineer on WhatsApp or reserve your node now.
+            </p>
+
+            <form id="deploy-order-form" onsubmit="window.handleOrderSubmit(event)">
+                <div class="modal-form-content">
+                    <div class="form-group-block" style="margin-bottom: 16px;">
+                        <label class="form-item-label" style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #475569; margin-bottom: 8px;">Select Datacenter Region:</label>
+                        <div class="region-chips-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+                            <button class="region-chip-btn active" type="button" onclick="window.selectRegion(this, 'Mumbai')">🇮🇳 Mumbai, IN (12ms)</button>
+                            <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'Frankfurt')">🇩🇪 Frankfurt (31ms)</button>
+                            <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'New York')">🇺🇸 New York (22ms)</button>
+                            <button class="region-chip-btn" type="button" onclick="window.selectRegion(this, 'Singapore')">🇸🇬 Singapore (28ms)</button>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                        <div class="form-group-block">
+                            <label class="form-item-label" style="display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px;">Your Name *</label>
+                            <input type="text" class="form-text-input" id="modal-cust-name" placeholder="John Doe" required style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13.5px;">
+                        </div>
+                        <div class="form-group-block">
+                            <label class="form-item-label" style="display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px;">WhatsApp / Phone *</label>
+                            <input type="tel" class="form-text-input" id="modal-cust-phone" placeholder="+91 98765 43210" required style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13.5px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group-block" style="margin-bottom: 16px;">
+                        <label class="form-item-label" style="display: block; font-size: 12px; font-weight: 700; color: #475569; margin-bottom: 6px;">Domain or Project Name</label>
+                        <input type="text" class="form-text-input" id="modal-domain-input" placeholder="e.g. mycompany.com (or 'Need new domain')" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13.5px;">
+                    </div>
+
+                    <div class="modal-summary-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 18px; margin-bottom: 20px;">
+                        <div class="summary-line-row" style="display: flex; justify-content: space-between; font-size: 13.5px; margin-bottom: 6px;">
+                            <span style="color: #64748b;">Selected Hosting Plan:</span>
+                            <strong id="modal-plan-name" style="color: #1e293b;">Standard Business (Yearly)</strong>
+                        </div>
+                        <div class="summary-line-row" style="display: flex; justify-content: space-between; font-size: 13.5px;">
+                            <span style="color: #64748b;">Rate:</span>
+                            <strong class="text-blue" id="modal-plan-price" style="font-size: 16px; font-weight: 800;">$6.99 /mo</strong>
+                        </div>
+                    </div>
+
+                    <!-- Business CTA Buttons -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <button type="button" onclick="window.orderViaWhatsApp()" class="btn full-w btn-lg" style="background: #25D366; color: #ffffff; border-radius: 9999px; padding: 13px 20px; font-weight: 700; font-size: 14.5px; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35); cursor: pointer; transition: transform 0.2s ease;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i>
+                            <span>Order & Chat on WhatsApp</span>
+                        </button>
+                        <button type="submit" class="btn btn-qarin-blue full-w btn-lg" style="padding: 13px 20px; font-weight: 700; font-size: 14.5px; justify-content: center;">
+                            <span>Confirm & Request Provisioning</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Success Notice Container -->
+                    <div id="modal-success-notice" style="display: none; margin-top: 16px; padding: 14px; background: #ecfdf5; border: 1px solid #6ee7b7; border-radius: 10px; text-align: center; color: #065f46; font-size: 13.5px; line-height: 1.5;">
+                        <strong style="display: block; font-size: 15px; margin-bottom: 4px;">🚀 Provisioning Request Received!</strong>
+                        Our cloud engineer is setting up your cluster node. We will ping you on WhatsApp within 15 minutes.
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -4033,231 +4124,11 @@ body {
     
 
 <script>
-
-/**
- * HiPapa Cloud — Script Engine
- */
-(function () {
-    'use strict';
-
-    // Pricing Matrix
-    const pricingData = {
-        USD: {
-            symbol: '$',
-            monthly: { basic: '5.99', standard: '11.99', premium: '29.99' },
-            yearly: { basic: '3.49', standard: '6.99', premium: '18.99' },
-            notes: {
-                monthly: 'Billed monthly',
-                yearly: 'Billed annually (Save 40%)'
-            }
-        },
-        INR: {
-            symbol: '₹',
-            monthly: { basic: '249', standard: '499', premium: '1,499' },
-            yearly: { basic: '149', standard: '299', premium: '899' },
-            notes: {
-                monthly: 'Billed monthly',
-                yearly: 'Billed annually (Save 40% + Free Domain)'
-            }
-        }
-    };
-
-    let currentCurrency = 'USD';
-    let currentDuration = 'yearly';
-    let selectedPlanForModal = 'Standard Business';
-
-    // Currency Switcher Function
-    window.setCurrency = function (curr) {
-        if (!pricingData[curr]) return;
-        currentCurrency = curr;
-
-        document.querySelectorAll('.capsule-btn').forEach(btn => {
-            if (btn.getAttribute('data-curr') === curr) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-
-        updatePricingDisplay();
-    };
-
-    // Duration Switcher Function
-    window.setDuration = function (duration) {
-        currentDuration = duration;
-
-        const monthlyBtn = document.getElementById('tab-monthly');
-        const yearlyBtn = document.getElementById('tab-yearly');
-
-        if (monthlyBtn && yearlyBtn) {
-            if (duration === 'monthly') {
-                monthlyBtn.classList.add('active');
-                yearlyBtn.classList.remove('active');
-            } else {
-                yearlyBtn.classList.add('active');
-                monthlyBtn.classList.remove('active');
-            }
-        }
-
-        updatePricingDisplay();
-    };
-
-    function updatePricingDisplay() {
-        const data = pricingData[currentCurrency];
-        if (!data) return;
-        const rates = data[currentDuration];
-        if (!rates) return;
-
-        // Symbols
-        ['price-sym-1', 'price-sym-2', 'price-sym-3'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.textContent = data.symbol;
-        });
-
-        // Prices
-        const elBasic = document.getElementById('price-val-basic');
-        const elStandard = document.getElementById('price-val-standard');
-        const elPremium = document.getElementById('price-val-premium');
-
-        if (elBasic) elBasic.textContent = rates.basic;
-        if (elStandard) elStandard.textContent = rates.standard;
-        if (elPremium) elPremium.textContent = rates.premium;
-
-        // Notes
-        const noteBasic = document.getElementById('price-note-basic');
-        const noteStandard = document.getElementById('price-note-standard');
-        const notePremium = document.getElementById('price-note-premium');
-
-        const noteText = data.notes[currentDuration];
-        if (noteBasic) noteBasic.textContent = noteText;
-        if (noteStandard) noteStandard.textContent = noteText;
-        if (notePremium) notePremium.textContent = noteText;
-    }
-
-    // FAQ Accordion
-    window.toggleFaq = function (triggerBtn) {
-        const panel = triggerBtn.closest('.faq-accordion-panel');
-        if (!panel) return;
-        const isActive = panel.classList.contains('active');
-        document.querySelectorAll('.faq-accordion-panel').forEach(p => p.classList.remove('active'));
-        if (!isActive) panel.classList.add('active');
-    };
-
-    // Server Deploy Modal
-    window.openDeployModal = function (planName) {
-        selectedPlanForModal = planName;
-        const modal = document.getElementById('deploy-modal');
-        const planTitle = document.getElementById('modal-plan-title');
-        const planNameEl = document.getElementById('modal-plan-name');
-        const planPriceEl = document.getElementById('modal-plan-price');
-
-        if (planTitle) planTitle.textContent = `Deploy ${planName}`;
-        if (planNameEl) planNameEl.textContent = `${planName} (${currentDuration === 'yearly' ? 'Yearly' : 'Monthly'})`;
-
-        const data = pricingData[currentCurrency];
-        let price = data.yearly.standard;
-        if (planName.includes('Basic')) price = data[currentDuration].basic;
-        if (planName.includes('Standard')) price = data[currentDuration].standard;
-        if (planName.includes('Premium')) price = data[currentDuration].premium;
-
-        if (planPriceEl) planPriceEl.textContent = `${data.symbol}${price} /mo`;
-        if (modal) modal.style.display = 'flex';
-    };
-
-    window.closeDeployModal = function () {
-        const modal = document.getElementById('deploy-modal');
-        if (modal) modal.style.display = 'none';
-    };
-
-    window.selectRegion = function (btn, regionName) {
-        document.querySelectorAll('.region-chip-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        window.selectedServerRegion = regionName;
-    };
-
-    window.confirmDeploy = function () {
-        const domainInput = document.getElementById('modal-domain-input');
-        const domain = domainInput ? (domainInput.value.trim() || 'mycompany.com') : 'mycompany.com';
-        const region = window.selectedServerRegion || 'Mumbai, India';
-        const data = pricingData[currentCurrency];
-        const rates = data[currentDuration];
-        let price = rates.standard;
-        if (selectedPlanForModal.includes('Basic')) price = rates.basic;
-        if (selectedPlanForModal.includes('Premium')) price = rates.premium;
-
-        const message = encodeURIComponent(
-            `Hello HiPapa Team! I want to deploy ${selectedPlanForModal} plan (${currentDuration}) on ${region} node for domain "${domain}". Effective: ${data.symbol}${price}/mo. Please send checkout and server activation instructions.`
-        );
-        window.open(`https://wa.me/919972788225?text=${message}`, '_blank');
-        window.closeDeployModal();
-    };
-
-    // Smooth Scroll & Navbar Scrollspy
-    function handleScroll() {
-        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        const header = document.getElementById('header');
-        if (header) {
-            if (scrollY > 20) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        }
-
-        const curtainWrap = document.getElementById('curtain-img-wrap');
-        if (curtainWrap && scrollY < 900) {
-            curtainWrap.style.transform = `translate3d(0, ${(scrollY * 0.1).toFixed(1)}px, 0)`;
-        }
-
-        // Scrollspy
-        const sections = ['hero', 'core-features', 'features', 'how-it-works', 'integrations', 'pricing', 'reviews', 'blog', 'faq'];
-        let activeId = 'hero';
-        for (const id of sections) {
-            const el = document.getElementById(id);
-            if (el && scrollY >= (el.offsetTop - 140)) {
-                activeId = id;
-            }
-        }
-        document.querySelectorAll('.nav-links .nav-item').forEach(link => {
-            if (link.getAttribute('href') === `#${activeId}`) link.classList.add('active');
-            else link.classList.remove('active');
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-
-        // Mobile Drawer
-        const toggle = document.getElementById('mobile-toggle');
-        const drawer = document.getElementById('mobile-drawer');
-        const close = document.getElementById('drawer-close');
-        if (toggle && drawer) toggle.addEventListener('click', () => drawer.classList.add('open'));
-        if (close && drawer) close.addEventListener('click', () => drawer.classList.remove('open'));
-        document.querySelectorAll('.m-link').forEach(l => l.addEventListener('click', () => drawer && drawer.classList.remove('open')));
-
-        // Direct click event binding for pricing tabs
-        const mBtn = document.getElementById('tab-monthly');
-        const yBtn = document.getElementById('tab-yearly');
-        if (mBtn) mBtn.addEventListener('click', () => window.setDuration('monthly'));
-        if (yBtn) yBtn.addEventListener('click', () => window.setDuration('yearly'));
-
-        document.querySelectorAll('.currency-toggle-capsule button').forEach(b => {
-            b.addEventListener('click', (e) => {
-                const curr = b.getAttribute('data-curr');
-                if (curr) window.setCurrency(curr);
-            });
-        });
-
-        // Initialize display
-        updatePricingDisplay();
-    });
-})();
-
-</script>
-<script>
-
-    // HiPapa Cloud — Dynamic Pricing Matrix & Filter Engine
+// HiPapa Cloud — Master Interactive Engine & Business System
     (function () {
         'use strict';
 
+        // 1. Pricing Matrix & Config
         const pricingData = {
             USD: {
                 symbol: '$',
@@ -4281,23 +4152,34 @@ body {
 
         var currentCurrency = 'USD';
         var currentDuration = 'yearly';
+        var selectedPlanForModal = 'Standard Business';
+        var selectedRegion = 'Mumbai';
 
+        // Toast Helper
+        window.showToast = function (msg) {
+            var toast = document.getElementById('hipapa-toast');
+            var toastMsg = document.getElementById('toast-msg');
+            if (toast && toastMsg) {
+                toastMsg.textContent = msg;
+                toast.classList.add('show');
+                setTimeout(function () { toast.classList.remove('show'); }, 3000);
+            }
+        };
+
+        // Pricing Currency Switcher
         window.setCurrency = function (curr) {
             if (!pricingData[curr]) return;
             currentCurrency = curr;
 
-            // Toggle active buttons
             document.querySelectorAll('.currency-toggle-capsule .capsule-btn').forEach(function (btn) {
-                if (btn.getAttribute('data-curr') === curr) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+                if (btn.getAttribute('data-curr') === curr) btn.classList.add('active');
+                else btn.classList.remove('active');
             });
 
             updatePricingDisplay();
         };
 
+        // Duration Switcher (Monthly vs Yearly)
         window.setDuration = function (duration) {
             currentDuration = duration;
 
@@ -4344,10 +4226,189 @@ body {
                 var el = document.getElementById(id);
                 if (el) el.textContent = noteText;
             });
+
+            // Sync with open modal if visible
+            updateModalPricing();
         }
 
-        // Direct event listener binding
+        function updateModalPricing() {
+            var data = pricingData[currentCurrency];
+            if (!data) return;
+            var planTitle = document.getElementById('modal-plan-title');
+            var planNameEl = document.getElementById('modal-plan-name');
+            var planPriceEl = document.getElementById('modal-plan-price');
+            var discountTag = document.getElementById('modal-discount-tag');
+
+            var planKey = 'standard';
+            if (selectedPlanForModal.includes('Basic')) planKey = 'basic';
+            if (selectedPlanForModal.includes('Premium')) planKey = 'premium';
+
+            var price = data[currentDuration][planKey];
+
+            if (planTitle) planTitle.textContent = 'Deploy ' + selectedPlanForModal;
+            if (planNameEl) planNameEl.textContent = selectedPlanForModal + ' (' + (currentDuration === 'yearly' ? 'Yearly - Save 40%' : 'Monthly') + ')';
+            if (planPriceEl) planPriceEl.textContent = data.symbol + price + ' /mo';
+            if (discountTag) discountTag.style.display = currentDuration === 'yearly' ? 'inline-block' : 'none';
+        }
+
+        // Region Selector
+        window.selectRegion = function (btn, regionName) {
+            selectedRegion = regionName;
+            document.querySelectorAll('.region-chip-btn').forEach(function (b) { b.classList.remove('active'); });
+            if (btn) btn.classList.add('active');
+        };
+
+        // Deploy Modal Open / Close
+        window.openDeployModal = function (planName) {
+            if (planName) selectedPlanForModal = planName;
+            var modal = document.getElementById('deploy-modal');
+            updateModalPricing();
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeDeployModal = function () {
+            var modal = document.getElementById('deploy-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        };
+
+        // WhatsApp Direct Order Action
+        window.orderViaWhatsApp = function () {
+            var name = document.getElementById('modal-cust-name') ? document.getElementById('modal-cust-name').value.trim() : '';
+            var phone = document.getElementById('modal-cust-phone') ? document.getElementById('modal-cust-phone').value.trim() : '';
+            var domain = document.getElementById('modal-domain-input') ? document.getElementById('modal-domain-input').value.trim() : 'New Domain';
+            
+            var data = pricingData[currentCurrency];
+            var planKey = 'standard';
+            if (selectedPlanForModal.includes('Basic')) planKey = 'basic';
+            if (selectedPlanForModal.includes('Premium')) planKey = 'premium';
+            var price = data[currentDuration][planKey];
+
+            var msg = 'Hello HiPapa Cloud! I would like to order the ' + selectedPlanForModal + ' (' + currentDuration + ') at ' + data.symbol + price + '/mo for region: ' + selectedRegion + '.';
+            if (domain) msg += ' Domain: ' + domain + '.';
+            if (name) msg += ' Name: ' + name + '.';
+            if (phone) msg += ' Phone: ' + phone + '.';
+
+            var url = 'https://wa.me/919972788225?text=' + encodeURIComponent(msg);
+            window.open(url, '_blank');
+        };
+
+        // Form Submit Handler
+        window.handleOrderSubmit = function (e) {
+            e.preventDefault();
+            var successNotice = document.getElementById('modal-success-notice');
+            if (successNotice) {
+                successNotice.style.display = 'block';
+                successNotice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            window.showToast('🚀 Order request received! Engineer notified.');
+            setTimeout(function () {
+                window.closeDeployModal();
+                if (successNotice) successNotice.style.display = 'none';
+            }, 3500);
+        };
+
+        // Dashboard Tabs Interaction
         document.addEventListener('DOMContentLoaded', function () {
+            // Dashboard navigation tabs
+            document.querySelectorAll('.dash-tab-btn').forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    document.querySelectorAll('.dash-tab-btn').forEach(function (t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
+                    window.showToast('Viewing ' + tab.textContent.trim() + ' telemetry...');
+                });
+            });
+
+            // Export metrics button
+            var exportBtn = document.querySelector('.welcome-action-controls .btn-qarin-white');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.showToast('📊 Metrics exported to CSV & JSON!');
+                });
+            }
+
+            // Quick date dropdown
+            var dateBtn = document.querySelector('.date-pill-btn');
+            if (dateBtn) {
+                dateBtn.addEventListener('click', function () {
+                    window.showToast('Telemetry range: Last 24 Days Active');
+                });
+            }
+        });
+
+        // =========================================================================
+        // SCROLL PARALLAX & FLOATING DASHBOARD ENGINE
+        // =========================================================================
+        var ticking = false;
+
+        function updateParallax() {
+            var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+            // 1. Header sticky pill
+            var header = document.getElementById('header');
+            if (header) {
+                if (scrollY > 20) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            }
+
+            // 2. Center Background Lines (Curtain parallax strictly vertical, zero horizontal drift)
+            var curtainWrap = document.getElementById('curtain-img-wrap');
+            if (curtainWrap && scrollY < 1200) {
+                var curtainY = (scrollY * 0.12).toFixed(1);
+                curtainWrap.style.transform = 'translate3d(0, ' + curtainY + 'px, 0)';
+            }
+
+            var curtainStripes = document.getElementById('curtain-stripes');
+            if (curtainStripes && scrollY < 1200) {
+                var stripesY = (scrollY * 0.08).toFixed(1);
+                curtainStripes.style.transform = 'translate3d(0, ' + stripesY + 'px, 0)';
+            }
+
+            // 3. Floating Dashboard with smooth 3D elevation
+            var dashCard = document.getElementById('main-dashboard-card');
+            if (dashCard && scrollY < 1100) {
+                var floatY = (scrollY * -0.065).toFixed(1);
+                var tiltX = Math.max(-4.5, (scrollY * -0.007)).toFixed(2);
+                dashCard.style.transform = 'perspective(1200px) translateY(' + floatY + 'px) rotateX(' + tiltX + 'deg)';
+                var shadowSpread = Math.min(30, scrollY * 0.04);
+                dashCard.style.boxShadow = '0 ' + (32 + shadowSpread) + 'px ' + (90 + shadowSpread * 1.5) + 'px -15px rgba(37, 99, 235, 0.24), 0 0 0 1px rgba(255, 255, 255, 0.9)';
+            }
+
+            // 4. Scrollspy navigation
+            var sections = ['hero', 'core-features', 'features', 'how-it-works', 'integrations', 'pricing', 'reviews', 'blog', 'faq'];
+            var activeId = 'hero';
+            for (var i = 0; i < sections.length; i++) {
+                var sec = document.getElementById(sections[i]);
+                if (sec && scrollY >= (sec.offsetTop - 150)) {
+                    activeId = sections[i];
+                }
+            }
+            document.querySelectorAll('.nav-links .nav-item').forEach(function (link) {
+                if (link.getAttribute('href') === '#' + activeId) link.classList.add('active');
+                else link.classList.remove('active');
+            });
+
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function () {
+            // Direct click listeners for pricing
             var mBtn = document.getElementById('tab-monthly');
             var yBtn = document.getElementById('tab-yearly');
             var usdBtn = document.getElementById('curr-btn-usd');
@@ -4358,13 +4419,42 @@ body {
             if (usdBtn) usdBtn.addEventListener('click', function () { window.setCurrency('USD'); });
             if (inrBtn) inrBtn.addEventListener('click', function () { window.setCurrency('INR'); });
 
+            // Mobile drawer
+            var toggle = document.getElementById('mobile-toggle');
+            var drawer = document.getElementById('mobile-drawer');
+            var close = document.getElementById('drawer-close');
+            if (toggle && drawer) toggle.addEventListener('click', function () { drawer.classList.add('open'); });
+            if (close && drawer) close.addEventListener('click', function () { drawer.classList.remove('open'); });
+            document.querySelectorAll('.m-link').forEach(function (l) {
+                l.addEventListener('click', function () { if (drawer) drawer.classList.remove('open'); });
+            });
+
+            // 3D subtle mouse tilt on dashboard
+            var dashCard = document.getElementById('main-dashboard-card');
+            if (dashCard) {
+                dashCard.addEventListener('mousemove', function (e) {
+                    var rect = dashCard.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    var cx = rect.width / 2;
+                    var cy = rect.height / 2;
+                    var dx = (x - cx) / cx;
+                    var dy = (y - cy) / cy;
+                    dashCard.style.transform = 'perspective(1200px) rotateX(' + (-dy * 3.5).toFixed(2) + 'deg) rotateY(' + (dx * 3.5).toFixed(2) + 'deg) translateY(-4px)';
+                });
+                dashCard.addEventListener('mouseleave', function () {
+                    dashCard.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                });
+            }
+
             updatePricingDisplay();
+            updateParallax();
         });
 
-        // Run immediately as well
+        // Initial setup
         updatePricingDisplay();
     })();
-
 </script>
+<div class="hipapa-toast" id="hipapa-toast"><i class="fa-solid fa-circle-check text-green"></i> <span id="toast-msg">Success</span></div>
 </body>
 </html>
